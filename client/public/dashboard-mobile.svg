@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320" height="180" viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradients -->
+  <defs>
+    <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a365d" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="chartGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1a365d"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="5" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background Rectangle -->
+  <rect width="320" height="180" fill="url(#backgroundGradient)" rx="10"/>
+
+  <!-- Dashboard Container -->
+  <rect x="20" y="15" width="280" height="150" rx="8" fill="white" filter="url(#shadow)"/>
+  
+  <!-- Dashboard Header -->
+  <rect x="20" y="15" width="280" height="30" rx="8" fill="#f8fafc"/>
+  <rect x="20" y="15" width="280" height="8" rx="8" fill="url(#blueGradient)"/>
+  
+  <!-- Dashboard Title -->
+  <text x="35" y="35" font-family="Arial, sans-serif" font-weight="bold" font-size="10" fill="#1a365d">3X Lead Growth Dashboard</text>
+
+  <!-- Growth Stats Section -->
+  <rect x="30" y="55" width="80" height="40" rx="6" fill="#f8fafc"/>
+  <text x="40" y="70" font-family="Arial, sans-serif" font-weight="bold" font-size="8" fill="#1a365d">Total Leads</text>
+  <text x="40" y="85" font-family="Arial, sans-serif" font-weight="bold" font-size="14" fill="#34d399">324</text>
+  <text x="70" y="85" font-family="Arial, sans-serif" font-size="8" fill="#34d399">+208%</text>
+  
+  <rect x="120" y="55" width="80" height="40" rx="6" fill="#f8fafc"/>
+  <text x="130" y="70" font-family="Arial, sans-serif" font-weight="bold" font-size="8" fill="#1a365d">Conversion</text>
+  <text x="130" y="85" font-family="Arial, sans-serif" font-weight="bold" font-size="14" fill="#34d399">15.8%</text>
+  <text x="165" y="85" font-family="Arial, sans-serif" font-size="8" fill="#34d399">+187%</text>
+  
+  <rect x="210" y="55" width="80" height="40" rx="6" fill="#f8fafc"/>
+  <text x="220" y="70" font-family="Arial, sans-serif" font-weight="bold" font-size="8" fill="#1a365d">New Clients</text>
+  <text x="220" y="85" font-family="Arial, sans-serif" font-weight="bold" font-size="14" fill="#34d399">78</text>
+  <text x="242" y="85" font-family="Arial, sans-serif" font-size="8" fill="#34d399">+300%</text>
+
+  <!-- Main Chart -->
+  <rect x="30" y="105" width="260" height="50" rx="6" fill="#f8fafc"/>
+  
+  <!-- Chart Title -->
+  <text x="40" y="120" font-family="Arial, sans-serif" font-weight="bold" font-size="8" fill="#1a365d">Lead Growth</text>
+  
+  <!-- X Axis -->
+  <line x1="40" y1="140" x2="280" y2="140" stroke="#cbd5e1" stroke-width="1"/>
+  
+  <!-- Before Line -->
+  <polyline points="40,135 95,133 150,136 205,132 260,134" stroke="#94a3b8" stroke-width="1" fill="none"/>
+  <circle cx="40" cy="135" r="2" fill="#94a3b8"/>
+  <circle cx="95" cy="133" r="2" fill="#94a3b8"/>
+  <circle cx="150" cy="136" r="2" fill="#94a3b8"/>
+  <circle cx="205" cy="132" r="2" fill="#94a3b8"/>
+  <circle cx="260" cy="134" r="2" fill="#94a3b8"/>
+  
+  <!-- After Line (3X Growth) -->
+  <polyline points="40,135 95,125 150,115 205,110 260,105" stroke="url(#greenGradient)" stroke-width="2" fill="none"/>
+  <circle cx="40" cy="135" r="2" fill="#34d399"/>
+  <circle cx="95" cy="125" r="2" fill="#34d399"/>
+  <circle cx="150" cy="115" r="2" fill="#34d399"/>
+  <circle cx="205" cy="110" r="2" fill="#34d399"/>
+  <circle cx="260" cy="105" r="2" fill="#34d399"/>
+  
+  <!-- Area under the growth line -->
+  <path d="M40,135 L95,125 L150,115 L205,110 L260,105 L260,140 L205,140 L150,140 L95,140 L40,140 Z" fill="url(#chartGradient)"/>
+
+  <!-- 3X Badge -->
+  <circle cx="260" cy="120" r="15" fill="url(#greenGradient)"/>
+  <text x="252" y="124" font-family="Arial, sans-serif" font-weight="bold" font-size="12" fill="white">3X</text>
+</svg>

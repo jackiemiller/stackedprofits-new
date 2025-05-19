@@ -1,0 +1,42 @@
+/* Mobile fixes for hero section */
+@media (max-width: 768px) {
+  /* Hide the dashboard visualization completely on mobile */
+  .dashboard-visualization {
+    display: none !important;
+  }
+  
+  /* Ensure hero section is properly contained */
+  #hero {
+    overflow: hidden;
+    max-width: 100vw;
+    padding: 1rem;
+  }
+  
+  /* Fix text alignment and sizing */
+  #hero h1 {
+    font-size: 1.5rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  /* Ensure buttons are properly sized */
+  #hero .hero-buttons {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+  
+  #hero .hero-buttons a {
+    width: 100% !important;
+    text-align: center !important;
+  }
+  
+  /* Fix any overflow issues */
+  .overflow-hidden {
+    overflow: hidden !important;
+  }
+  
+  /* Add padding to fix content being too close to edges */
+  .px-4 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
