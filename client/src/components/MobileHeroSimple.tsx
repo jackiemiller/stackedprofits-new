@@ -17,32 +17,20 @@ export default function MobileHeroSimple() {
               <span className="font-bold">Free Website Audit + High-Speed Hosting Included</span> — Packages start at just $100/month with monthly content and more.
             </p>
 
-            {/* Growth highlight */}
-            <div className="my-4 bg-gradient-to-r from-gray-50 to-gray-100 rounded-lg p-4 border border-gray-200">
-              <div className="flex items-center justify-between">
-                <div className="text-sm font-medium text-gray-800">Clients see dramatic growth in:</div>
-                <div className="bg-green-500 text-white text-sm font-bold rounded-full w-8 h-8 flex items-center justify-center">
-                  3X
+            {/* Growth pills - minimal design */}
+            <div className="my-4">
+              <div className="flex flex-wrap justify-center gap-2">
+                <div className="inline-flex items-center bg-green-500 text-white rounded-full px-3 py-1 shadow-sm">
+                  <span className="font-bold text-lg mr-1">3X</span>
+                  <span className="text-xs">Growth</span>
                 </div>
-              </div>
-              <div className="mt-2 grid grid-cols-1 gap-2">
-                <div className="flex items-center text-xs">
-                  <svg className="h-4 w-4 text-green-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  <span>Website Traffic and Visibility</span>
+                <div className="inline-flex items-center bg-blue-500 text-white rounded-full px-3 py-1 shadow-sm">
+                  <span className="font-bold text-sm mr-1">+208%</span>
+                  <span className="text-xs">Leads</span>
                 </div>
-                <div className="flex items-center text-xs">
-                  <svg className="h-4 w-4 text-green-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  <span>Lead Generation and Conversion</span>
-                </div>
-                <div className="flex items-center text-xs">
-                  <svg className="h-4 w-4 text-green-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  <span>Client Acquisition and Revenue</span>
+                <div className="inline-flex items-center bg-indigo-500 text-white rounded-full px-3 py-1 shadow-sm">
+                  <span className="font-bold text-sm mr-1">+300%</span>
+                  <span className="text-xs">Clients</span>
                 </div>
               </div>
             </div>

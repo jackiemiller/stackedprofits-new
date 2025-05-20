@@ -1,10 +1,27 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import DashboardHeroSvg from "./DashboardHeroSvg";
+import MobileDashboardSvg from "./MobileDashboardSvg";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
-  // Check if we're on mobile using matchMedia
-  const isMobileView = typeof window !== 'undefined' && window.matchMedia("(max-width: 768px)").matches;
+  const [isMobileView, setIsMobileView] = useState(false);
+  
+  useEffect(() => {
+    // Check if we're on mobile using matchMedia
+    const checkMobile = () => {
+      setIsMobileView(window.matchMedia("(max-width: 768px)").matches);
+    };
+    
+    // Set initial value
+    checkMobile();
+    
+    // Add event listener for window resize
+    window.addEventListener("resize", checkMobile);
+    
+    // Clean up
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
   
   // Create a completely different mobile layout
   if (isMobileView) {
@@ -23,6 +40,11 @@ export default function Hero() {
             
             <div className="mt-3 text-sm text-gray-600">
               Perfect for <span className="font-medium">Attorneys</span>, <span className="font-medium">Medical Practices</span>, and <span className="font-medium">Home Service Businesses</span>.
+            </div>
+            
+            {/* Mobile mini graphic - guaranteed small size */}
+            <div className="mt-4 text-center">
+              <img src="/mini-dashboard.png" alt="Lead Generation Results" width="150" height="100" className="inline-block border border-slate-200 rounded-lg shadow-sm" />
             </div>
             
             <div className="mt-3 text-sm text-gray-600">

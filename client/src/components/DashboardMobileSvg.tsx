@@ -1,87 +1,41 @@
-export default function DashboardMobileSvg() {
+export default function MobileDashboardSvg() {
   return (
-    <div className="flex justify-center w-full px-2">
-      <svg width="250" height="170" viewBox="0 0 250 170" fill="none" xmlns="http://www.w3.org/2000/svg">
-        {/* Background gradients */}
-        <defs>
-          <linearGradient id="mobileBackgroundGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#1a365d" stopOpacity="0.05"/>
-            <stop offset="100%" stopColor="#ffffff" stopOpacity="0"/>
-          </linearGradient>
-          <linearGradient id="mobileChartGradient" x1="0%" y1="100%" x2="0%" y2="0%">
-            <stop offset="0%" stopColor="#34d399" stopOpacity="0.2"/>
-            <stop offset="100%" stopColor="#34d399" stopOpacity="0"/>
-          </linearGradient>
-          <linearGradient id="mobileBlueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#1a365d"/>
-            <stop offset="100%" stopColor="#2563eb"/>
-          </linearGradient>
-          <linearGradient id="mobileGreenGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#059669"/>
-            <stop offset="100%" stopColor="#34d399"/>
-          </linearGradient>
-          <filter id="mobileShadow" x="-5%" y="-5%" width="110%" height="110%">
-            <feDropShadow dx="0" dy="2" stdDeviation="3" floodOpacity="0.15"/>
-          </filter>
-        </defs>
-
-        {/* Background Rectangle */}
-        <rect width="250" height="170" fill="url(#mobileBackgroundGradient)" rx="8"/>
-
-        {/* Dashboard Container */}
-        <rect x="10" y="10" width="230" height="150" rx="6" fill="white" filter="url(#mobileShadow)"/>
+    <div className="mx-auto" style={{ width: '150px', height: '100px' }}>
+      <svg width="150" height="100" viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Mini dashboard background */}
+        <rect width="150" height="100" rx="4" fill="#f8fafc" stroke="#e5e7eb" strokeWidth="1"/>
         
-        {/* Dashboard Header */}
-        <rect x="10" y="10" width="230" height="25" rx="6" fill="#f8fafc"/>
-        <rect x="10" y="10" width="230" height="6" rx="6" fill="url(#mobileBlueGradient)"/>
+        {/* Title */}
+        <text x="10" y="15" fill="#1a365d" fontSize="6" fontWeight="600">Lead Generation Dashboard</text>
         
-        {/* Dashboard Title */}
-        <text x="20" y="27" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="9" fill="#1a365d">Lead Generation Dashboard</text>
-
-        {/* Growth Stats Section - Just two metrics side by side */}
-        <rect x="20" y="45" width="100" height="35" rx="4" fill="#f8fafc"/>
-        <text x="30" y="60" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="8" fill="#1a365d">Total Leads</text>
-        <text x="30" y="75" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="14" fill="#34d399">324</text>
-        <text x="60" y="75" fontFamily="Arial, sans-serif" fontSize="8" fill="#34d399">+208%</text>
+        {/* Stats boxes */}
+        <rect x="10" y="25" width="40" height="20" rx="2" fill="#f8fafc" stroke="#e5e7eb" strokeWidth="0.5"/>
+        <text x="12" y="32" fill="#475569" fontSize="4">Leads</text>
+        <text x="12" y="40" fill="#1e293b" fontSize="7" fontWeight="bold">324</text>
+        <text x="27" y="40" fill="#10b981" fontSize="4">+208%</text>
         
-        <rect x="130" y="45" width="100" height="35" rx="4" fill="#f8fafc"/>
-        <text x="140" y="60" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="8" fill="#1a365d">New Clients</text>
-        <text x="140" y="75" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="14" fill="#34d399">78</text>
-        <text x="160" y="75" fontFamily="Arial, sans-serif" fontSize="8" fill="#34d399">+300%</text>
+        <rect x="55" y="25" width="40" height="20" rx="2" fill="#f8fafc" stroke="#e5e7eb" strokeWidth="0.5"/>
+        <text x="57" y="32" fill="#475569" fontSize="4">Conv. Rate</text>
+        <text x="57" y="40" fill="#1e293b" fontSize="7" fontWeight="bold">15.8%</text>
+        <text x="77" y="40" fill="#10b981" fontSize="4">+187%</text>
         
-        {/* Main Chart */}
-        <rect x="20" y="90" width="210" height="60" rx="4" fill="#f8fafc"/>
+        <rect x="100" y="25" width="40" height="20" rx="2" fill="#f8fafc" stroke="#e5e7eb" strokeWidth="0.5"/>
+        <text x="102" y="32" fill="#475569" fontSize="4">Clients</text>
+        <text x="102" y="40" fill="#1e293b" fontSize="7" fontWeight="bold">78</text>
+        <text x="112" y="40" fill="#10b981" fontSize="4">+300%</text>
         
-        {/* Chart Title */}
-        <text x="30" y="105" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="8" fill="#1a365d">Lead Growth Over Time</text>
+        {/* Chart area */}
+        <rect x="10" y="50" width="130" height="45" rx="2" fill="#f8fafc" stroke="#e5e7eb" strokeWidth="0.5"/>
         
-        {/* X Axis */}
-        <line x1="30" y1="130" x2="210" y2="130" stroke="#cbd5e1" strokeWidth="1"/>
-        <text x="35" y="140" fontFamily="Arial, sans-serif" fontSize="6" fill="#64748b">Month 1</text>
-        <text x="80" y="140" fontFamily="Arial, sans-serif" fontSize="6" fill="#64748b">Month 2</text>
-        <text x="125" y="140" fontFamily="Arial, sans-serif" fontSize="6" fill="#64748b">Month 3</text>
-        <text x="170" y="140" fontFamily="Arial, sans-serif" fontSize="6" fill="#64748b">Month 4</text>
+        {/* Chart line */}
+        <polyline points="20,85 45,80 70,65 95,55 120,50" stroke="#34d399" strokeWidth="1.5" fill="none"/>
         
-        {/* Before Line */}
-        <polyline points="35,125 80,123 125,126 170,122" stroke="#94a3b8" strokeWidth="1" fill="none"/>
-        <circle cx="35" cy="125" r="2" fill="#94a3b8"/>
-        <circle cx="80" cy="123" r="2" fill="#94a3b8"/>
-        <circle cx="125" cy="126" r="2" fill="#94a3b8"/>
-        <circle cx="170" cy="122" r="2" fill="#94a3b8"/>
+        {/* Area fill */}
+        <path d="M20,85 L45,80 L70,65 L95,55 L120,50 L120,90 L95,90 L70,90 L45,90 L20,90 Z" fill="#34d399" fillOpacity="0.1"/>
         
-        {/* After Line (3X Growth) */}
-        <polyline points="35,125 80,117 125,110 170,105" stroke="url(#mobileGreenGradient)" strokeWidth="2" fill="none"/>
-        <circle cx="35" cy="125" r="2" fill="#34d399"/>
-        <circle cx="80" cy="117" r="2" fill="#34d399"/>
-        <circle cx="125" cy="110" r="2" fill="#34d399"/>
-        <circle cx="170" cy="105" r="2" fill="#34d399"/>
-        
-        {/* Area under the growth line */}
-        <path d="M35,125 L80,117 L125,110 L170,105 L170,130 L125,130 L80,130 L35,130 Z" fill="url(#mobileChartGradient)"/>
-
-        {/* 3X Badge */}
-        <circle cx="200" cy="120" r="12" fill="url(#mobileGreenGradient)"/>
-        <text x="193" y="124" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="10" fill="white">3X</text>
+        {/* 3X badge */}
+        <circle cx="120" cy="60" r="8" fill="#34d399"/>
+        <text x="115" y="63" fill="white" fontSize="6" fontWeight="bold">3X</text>
       </svg>
     </div>
   );

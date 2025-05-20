@@ -100,7 +100,13 @@ export default function Navbar() {
               </a>
             </div>
             
-            <div className="flex items-center">
+            <div className="flex items-center space-x-2">
+              <a 
+                href="/mobile-preview" 
+                className="inline-flex items-center px-3 py-1.5 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 transition-all duration-300 focus:outline-none focus:ring-1 focus:ring-gray-300"
+              >
+                Mobile Preview
+              </a>
               <a 
                 href="#get-started" 
                 className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-primary to-secondary hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"

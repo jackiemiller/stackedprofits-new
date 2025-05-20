@@ -10,6 +10,7 @@ export default function MobileView() {
       <div className="mb-4 flex flex-col space-y-4">
         <h2 className="text-xl font-bold">Mobile Hero Test</h2>
         <div className="flex flex-wrap gap-2">
+          <div className="w-full text-sm text-gray-600 mb-1">iOS Devices:</div>
           <button 
             onClick={() => setViewportWidth(320)} 
             className={`px-3 py-1 rounded ${viewportWidth === 320 ? 'bg-primary text-white' : 'bg-gray-200'}`}
@@ -27,6 +28,26 @@ export default function MobileView() {
             className={`px-3 py-1 rounded ${viewportWidth === 390 ? 'bg-primary text-white' : 'bg-gray-200'}`}
           >
             iPhone 12/13 (390px)
+          </button>
+          
+          <div className="w-full text-sm text-gray-600 mt-2 mb-1">Android Devices:</div>
+          <button 
+            onClick={() => setViewportWidth(360)} 
+            className={`px-3 py-1 rounded ${viewportWidth === 360 ? 'bg-primary text-white' : 'bg-gray-200'}`}
+          >
+            Android Small (360px)
+          </button>
+          <button 
+            onClick={() => setViewportWidth(393)} 
+            className={`px-3 py-1 rounded ${viewportWidth === 393 ? 'bg-primary text-white' : 'bg-gray-200'}`}
+          >
+            Pixel 6 (393px)
+          </button>
+          <button 
+            onClick={() => setViewportWidth(412)} 
+            className={`px-3 py-1 rounded ${viewportWidth === 412 ? 'bg-primary text-white' : 'bg-gray-200'}`}
+          >
+            Samsung Galaxy (412px)
           </button>
         </div>
       </div>
