@@ -60,7 +60,13 @@ export default function Home() {
       
       <main id="main-content" role="main">
         <section aria-labelledby="hero-heading">
-          {isMobile ? <MobileHeroBasic /> : <Hero />}
+          {/* Force mobile check using CSS instead of JS detection */}
+          <div className="block md:hidden">
+            <MobileHeroBasic />
+          </div>
+          <div className="hidden md:block">
+            <Hero />
+          </div>
         </section>
         
         <section aria-label="Explainer Video" id="video-explainer">
@@ -102,3 +108,4 @@ export default function Home() {
     </div>
   );
 }
+
