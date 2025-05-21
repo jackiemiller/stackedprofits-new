@@ -108,7 +108,7 @@ export default function Hero() {
   
   // Desktop layout
   return (
-    <div className="bg-white relative" id="hero">
+    <div className="bg-white relative" id="desktop-hero">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-20">
         {/* Two-column layout with flex for desktop */}
         <div className="flex flex-row items-center">
