@@ -42,9 +42,11 @@ export default function Hero() {
               Perfect for <span className="font-medium">Attorneys</span>, <span className="font-medium">Medical Practices</span>, and <span className="font-medium">Home Service Businesses</span>.
             </div>
             
-            {/* Mobile mini graphic - guaranteed small size */}
-            <div className="mt-4 text-center">
-              <img src="/mini-dashboard.png" alt="Lead Generation Results" width="150" height="100" className="inline-block border border-slate-200 rounded-lg shadow-sm" />
+            {/* Mobile mini graphic - hidden on mobile, visible only on larger screens */}
+            <div className="mt-4 text-center hidden sm:block">
+              <div className="inline-block border border-slate-200 rounded-lg shadow-sm" style={{ width: '150px', height: '100px', overflow: 'hidden' }}>
+                <MobileDashboardSvg />
+              </div>
             </div>
             
             <div className="mt-3 text-sm text-gray-600">
