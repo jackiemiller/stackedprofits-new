@@ -42,10 +42,21 @@ export default function Hero() {
               Perfect for <span className="font-medium">Attorneys</span>, <span className="font-medium">Medical Practices</span>, and <span className="font-medium">Home Service Businesses</span>.
             </div>
             
-            {/* Mobile mini graphic - hidden on mobile, visible only on larger screens */}
-            <div className="mt-4 text-center hidden sm:block">
-              <div className="inline-block border border-slate-200 rounded-lg shadow-sm" style={{ width: '150px', height: '100px', overflow: 'hidden' }}>
-                <MobileDashboardSvg />
+            {/* Mobile growth pills */}
+            <div className="my-4">
+              <div className="flex flex-wrap justify-center gap-2">
+                <div className="inline-flex items-center bg-green-500 text-white rounded-full px-3 py-1 shadow-sm">
+                  <span className="font-bold text-lg mr-1">3X</span>
+                  <span className="text-xs">Growth</span>
+                </div>
+                <div className="inline-flex items-center bg-blue-500 text-white rounded-full px-3 py-1 shadow-sm">
+                  <span className="font-bold text-sm mr-1">+208%</span>
+                  <span className="text-xs">Leads</span>
+                </div>
+                <div className="inline-flex items-center bg-indigo-500 text-white rounded-full px-3 py-1 shadow-sm">
+                  <span className="font-bold text-sm mr-1">+300%</span>
+                  <span className="text-xs">Clients</span>
+                </div>
               </div>
             </div>
             
