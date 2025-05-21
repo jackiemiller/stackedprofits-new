@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import MobileHeroBasic from "@/components/MobileHeroBasic";
-import MobileHeroSection from "@/components/MobileHeroSection";
 import Benefits from "@/components/Benefits";
 import HostingPlan from "@/components/HostingPlan";
 import PricingTable from "@/components/PricingTable";
@@ -25,12 +24,12 @@ export default function Home() {
   const { data: faqs } = useQuery<FAQ[]>({
     queryKey: ['/api/faqs'],
   });
-  
+
   // Dynamic page title for SEO
   useEffect(() => {
     // Set page-specific metadata when component mounts
     document.title = "Get 3X More Leads For Your Local Business | Stacked Profits";
-    
+
     // Update meta description
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
@@ -38,13 +37,13 @@ export default function Home() {
         "Free websites that generate up to 3X more leads and clients for attorneys, medical practices, and home service businesses. High-speed hosting and business tools included."
       );
     }
-    
+
     // Clean up when component unmounts
     return () => {
       document.title = "Stacked Profits"; // Reset to default
     };
   }, []);
-  
+
   // You would replace this with your actual video ID
   const videoProps = {
     videoId: 'your-video-id', // Replace with your actual YouTube or Vimeo video ID
@@ -52,22 +51,24 @@ export default function Home() {
     title: "See How We Get 3X More Leads for Local Businesses",
     subtitle: "Watch how our complete website system helps local service businesses grow"
   };
-  
+
   return (
     <div className="min-h-screen">
       <header role="banner">
         <Navbar />
       </header>
-      
+
       <main id="main-content" role="main">
         <section aria-labelledby="hero-heading">
-          {isMobile ? (
-            <MobileHeroSection />
-          ) : (
+          {/* Desktop view only */}
+          <div className="hidden md:block">
             <Hero />
-          )}
+          </div>
+
+          {/* Mobile view only */}
+          <MobileHeroBasic />
         </section>
-        
+
         <section aria-label="Explainer Video" id="video-explainer">
           {isMobile ? (
             <MobileVideoExplainer {...videoProps} />
@@ -75,32 +76,32 @@ export default function Home() {
             <VideoExplainer {...videoProps} />
           )}
         </section>
-        
+
         <section aria-labelledby="benefits-heading" id="features">
           <Benefits />
         </section>
-        
+
         <section aria-labelledby="hosting-plan-heading" id="hosting">
           <HostingPlan />
         </section>
-        
+
         <section aria-labelledby="pricing-heading" id="pricing">
           <PricingTable />
         </section>
-        
+
         <section aria-labelledby="testimonials-heading" id="testimonials">
           <Testimonials testimonials={testimonials || []} />
         </section>
-        
+
         <section aria-labelledby="faq-heading" id="faq">
           <FAQSection faqs={faqs || []} />
         </section>
-        
+
         <section aria-labelledby="get-started-heading" id="get-started">
           <LeadForm />
         </section>
       </main>
-      
+
       <footer role="contentinfo">
         <Footer />
       </footer>
