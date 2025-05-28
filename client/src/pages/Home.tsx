@@ -81,9 +81,46 @@ export default function Home() {
           <Benefits />
         </section>
         
-        <section aria-labelledby="seo-heading" id="seo">
-          <SEOSection />
-        </section>
+        {/* SEO and Google Ads Expertise Section */}
+        <div className="py-16 bg-gradient-to-br from-blue-50 to-indigo-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+                Dominate Local Search Results
+              </h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Our <span className="font-semibold text-primary">highest-level Google Ads certified team</span> specializes in getting service businesses and non-profits to rank in Google's coveted local 3-pack.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-8 mb-16">
+              <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  Google 3-Pack Domination
+                </h3>
+                <p className="text-gray-600">
+                  Get your business featured in Google's local 3-pack results where 44% of clicks happen.
+                </p>
+              </div>
+              <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  Highest Google Ads Certifications
+                </h3>
+                <p className="text-gray-600">
+                  Our team holds the highest level Google Ads certifications to maximize your advertising ROI.
+                </p>
+              </div>
+              <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  Non-Profit Expertise
+                </h3>
+                <p className="text-gray-600">
+                  Specialized Google Ads management for non-profits to maximize donation impact.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
         
         <section aria-labelledby="hosting-plan-heading" id="hosting">
           <HostingPlan />
