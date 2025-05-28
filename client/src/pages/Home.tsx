@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import MobileHeroBasic from "@/components/MobileHeroBasic";
 import MobileHeroSection from "@/components/MobileHeroSection";
 import Benefits from "@/components/Benefits";
+import SEOSection from "@/components/SEOSection";
 import HostingPlan from "@/components/HostingPlan";
 import PricingTable from "@/components/PricingTable";
 import Testimonials from "@/components/Testimonials";
@@ -78,6 +79,10 @@ export default function Home() {
         
         <section aria-labelledby="benefits-heading" id="features">
           <Benefits />
+        </section>
+        
+        <section aria-labelledby="seo-heading" id="seo">
+          <SEOSection />
         </section>
         
         <section aria-labelledby="hosting-plan-heading" id="hosting">

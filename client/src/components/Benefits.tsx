@@ -7,7 +7,11 @@ import {
   Hospital,
   Home,
   Cloud,
-  Search
+  Search,
+  TrendingUp,
+  Award,
+  MapPin,
+  Heart
 } from "lucide-react";
 
 const benefits = [
@@ -17,47 +21,52 @@ const benefits = [
     icon: Search
   },
   {
+    title: "Google 3-Pack SEO Optimization",
+    description: "Expert local SEO strategies to get your business featured in Google's coveted local 3-pack results.",
+    icon: MapPin
+  },
+  {
+    title: "Highest Google Ads Certifications",
+    description: "Our team holds the highest level Google Ads certifications to maximize your advertising ROI.",
+    icon: Award
+  },
+  {
     title: "Professional Design",
-    description: "Get a custom-designed website that looks great on all devices.",
+    description: "Get a custom-designed website that looks great on all devices and converts visitors to customers.",
     icon: Code
   },
   {
     title: "High-Speed Hosting",
-    description: "Blazing fast NVMe SSD storage with unlimited bandwidth.",
+    description: "Blazing fast NVMe SSD storage with unlimited bandwidth for optimal search rankings.",
     icon: Zap
   },
   {
     title: "Security Included",
-    description: "Free SSL certificate, malware protection, and regular backups.",
+    description: "Free SSL certificate, malware protection, and regular backups to protect your business.",
     icon: Shield
-  },
-  {
-    title: "24/7 Support",
-    description: "Access to helpful, human support whenever you need it.",
-    icon: Headphones
   }
 ];
 
 const businessNiches = [
   {
     title: "Attorney Websites",
-    description: "Specialized websites for law firms with client intake forms and secure document sharing.",
+    description: "SEO-optimized law firm websites that rank in Google's local 3-pack with secure client portals and intake forms.",
     icon: Briefcase
   },
   {
     title: "Medical & Dental Sites",
-    description: "HIPAA-compliant websites with appointment scheduling and patient portals.",
+    description: "HIPAA-compliant websites optimized for local search with appointment scheduling and patient portals.",
     icon: Hospital
   },
   {
     title: "Home Services",
-    description: "Lead-generating websites for contractors, plumbers, electricians and other service providers.",
+    description: "Lead-generating websites for contractors, plumbers, and electricians with local SEO optimization.",
     icon: Home
   },
   {
-    title: "Integrated Management Platform",
-    description: "All websites include our comprehensive business management software suite.",
-    icon: Cloud
+    title: "Non-Profit Organizations",
+    description: "Specialized Google Ads management and websites for non-profits to maximize donation impact.",
+    icon: Heart
   }
 ];
 
