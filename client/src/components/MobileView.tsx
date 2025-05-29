@@ -71,7 +71,26 @@ export default function MobileView() {
       
       <div className="border-2 border-gray-300 rounded-lg overflow-hidden mx-auto" style={{ width: `${viewportWidth}px` }}>
         <div style={{ width: `${viewportWidth}px`, height: '800px', overflow: 'auto' }}>
-          <div className="mobile-preview" style={{ width: `${viewportWidth}px`, overflowX: 'hidden' }}>
+          <div className="relative max-w-full overflow-x-hidden">
+  {/* Mobile Contact Header */}
+  <div className="bg-gray-900 py-2">
+    <div className="flex justify-center items-center space-x-4 px-4">
+      <div className="flex items-center space-x-1">
+        <svg className="h-2.5 w-2.5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21L6.5 10.5s-.5 1.5 2 4 4 2 4 2l1.128-3.726a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.948V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+        </svg>
+        <span className="text-xs text-white font-medium">904-424-3654</span>
+      </div>
+      <div className="flex items-center space-x-1">
+        <svg className="h-2.5 w-2.5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+        <span className="text-xs text-white font-medium">john@stackedprofits.com</span>
+      </div>
+    </div>
+  </div>
+  
+  <MobileHeroSimple />
             <div className="relative max-w-full overflow-x-hidden">
               {/* Mobile Contact Header */}
               <div className="bg-gray-900 py-2">
