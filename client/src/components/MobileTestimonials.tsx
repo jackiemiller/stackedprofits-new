@@ -74,7 +74,7 @@ export default function MobileTestimonials({ testimonials }: MobileTestimonialsP
             {/* Stars */}
             <div className="flex items-center mb-3">
               {Array.from({ length: parseInt(currentTestimonial.rating) }).map((_, i) => (
-                <StarIcon key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                <StarIcon key={i} className="h-3 w-3 text-yellow-400 fill-current" />
               ))}
             </div>
             

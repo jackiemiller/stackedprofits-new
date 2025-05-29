@@ -104,24 +104,24 @@ export default function FAQSection({ faqs }: FAQSectionProps) {
 
   return (
     <section className="bg-white" id="faq" aria-labelledby="faq-heading">
-      <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
-        <h2 id="faq-heading" className="text-center text-3xl font-extrabold text-gray-900 sm:text-4xl">
+      <div className="max-w-7xl mx-auto py-8 px-4 sm:py-16 sm:px-6 lg:px-8">
+        <h2 id="faq-heading" className="text-center text-xl font-extrabold text-gray-900 sm:text-3xl">
           Frequently asked questions
         </h2>
         
-        <div className="mt-12 max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="w-full space-y-4">
+        <div className="mt-6 max-w-3xl mx-auto">
+          <Accordion type="single" collapsible className="w-full space-y-2">
             {displayFaqs.map((faq) => (
               <AccordionItem 
                 key={faq.id} 
                 value={`faq-${faq.id}`} 
-                className="border border-gray-200 rounded-md p-1"
+                className="border border-gray-200 rounded-md"
                 data-faq-item={`faq-${faq.id}`}
               >
-                <AccordionTrigger className="text-lg font-medium text-gray-900 hover:text-primary px-4">
+                <AccordionTrigger className="text-sm font-medium text-gray-900 hover:text-primary px-3 py-3 sm:text-lg sm:px-4">
                   <span className="text-left">{faq.question}</span>
                 </AccordionTrigger>
-                <AccordionContent className="text-base text-gray-500 px-4 pb-4">
+                <AccordionContent className="text-xs text-gray-500 px-3 pb-3 sm:text-base sm:px-4 sm:pb-4">
                   <p>{faq.answer}</p>
                 </AccordionContent>
               </AccordionItem>
