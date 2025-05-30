@@ -59,7 +59,7 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
                 <div className="p-4 flex flex-col h-full">
                   <div className="flex items-center mb-3">
                     {Array.from({ length: parseInt(testimonial.rating) }).map((_, i) => (
-                      <StarIcon key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                      <StarIcon key={i} className="h-3 w-3 text-yellow-400 fill-current" />
                     ))}
                   </div>
                   
@@ -92,7 +92,7 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
                 <div className="flex-1">
                   <div className="flex items-center mb-4">
                     {Array.from({ length: parseInt(testimonial.rating) }).map((_, i) => (
-                      <StarIcon key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                      <StarIcon key={i} className="h-3 w-3 text-yellow-400 fill-current" />
                     ))}
                   </div>
                   

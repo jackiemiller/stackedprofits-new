@@ -18,29 +18,8 @@ export default function MobileNavbar() {
           </Link>
         </div>
         
-        {/* Contact info and menu button */}
-        <div className="py-2 px-3 flex justify-between items-center border-t border-gray-100">
-          <div className="flex flex-col gap-1">
-            {/* Phone number - with blue background */}
-            <a 
-              href="tel:9044243654" 
-              className="flex items-center px-2 py-1 bg-primary text-white rounded text-xs font-medium"
-            >
-              <Phone className="h-3 w-3 mr-1" />
-              <span>904-424-3654</span>
-            </a>
-            
-            {/* Email with full address */}
-            <a 
-              href="mailto:john@stackedprofits.com" 
-              className="flex items-center text-xs text-gray-600"
-            >
-              <Mail className="h-3 w-3 mr-1 text-primary" />
-              <span>john@stackedprofits.com</span>
-            </a>
-          </div>
-          
-          {/* Menu button */}
+        {/* Menu button only */}
+        <div className="py-2 px-3 flex justify-end items-center border-t border-gray-100">
           <button 
             onClick={toggleMenu} 
             className="p-2 rounded-md text-gray-700 hover:text-primary focus:outline-none"
