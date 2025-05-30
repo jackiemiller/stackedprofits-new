@@ -192,7 +192,7 @@ export default function MobileLeadForm() {
                   />
                 </div>
 
-                <FormField
+                                <FormField
                   control={form.control}
                   name="terms"
                   render={({ field }) => (
@@ -205,7 +205,7 @@ export default function MobileLeadForm() {
                         />
                       </FormControl>
                       <div className="space-y-1 leading-none">
-                        <FormLabel className="text-xs text-gray-700">
+                        <FormLabel className="text-sm text-gray-700">
                           I agree to the <a href="#" className="text-primary hover:underline">Terms</a> and <a href="#" className="text-primary hover:underline">Privacy Policy</a>
                         </FormLabel>
                         <FormMessage className="text-xs" />
@@ -216,7 +216,7 @@ export default function MobileLeadForm() {
 
                 <Button 
                   type="submit" 
-                  className="w-full text-xs py-2 mt-4 bg-primary hover:bg-primary/90" 
+                  className="w-full text-sm py-3 mt-4 bg-primary hover:bg-primary/90" 
                   disabled={mutation.isPending}
                 >
                   {mutation.isPending ? "Submitting..." : "Get Started Now"}
