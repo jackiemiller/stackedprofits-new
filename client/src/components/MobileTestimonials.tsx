@@ -71,10 +71,10 @@ export default function MobileTestimonials({ testimonials }: MobileTestimonialsP
         {/* Single testimonial card with pagination */}
         <div className="mt-6 relative bg-white rounded-xl shadow-md overflow-hidden mx-auto">
           <div className="p-5">
-            {/* Stars */}
+            {/* Stars - using smaller text-based stars */}
             <div className="flex items-center mb-3">
               {Array.from({ length: parseInt(currentTestimonial.rating) }).map((_, i) => (
-                <StarIcon key={i} className="h-3 w-3 text-yellow-400 fill-current" />
+                <span key={i} className="text-yellow-400 text-sm">★</span>
               ))}
             </div>
             
