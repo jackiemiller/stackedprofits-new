@@ -192,20 +192,20 @@ export default function MobileLeadForm() {
                   />
                 </div>
 
-                                <FormField
+                <FormField
                   control={form.control}
                   name="terms"
                   render={({ field }) => (
-                    <FormItem className="flex flex-row items-start space-x-2 space-y-0 mt-3">
+                    <FormItem className="flex flex-row items-start space-x-3 space-y-0 mt-3 mb-4">
                       <FormControl>
                         <Checkbox
                           checked={field.value}
                           onCheckedChange={field.onChange}
-                          className="data-[state=checked]:bg-primary data-[state=checked]:border-primary"
+                          className="data-[state=checked]:bg-primary data-[state=checked]:border-primary mt-1"
                         />
                       </FormControl>
-                      <div className="space-y-1 leading-none">
-                        <FormLabel className="text-sm text-gray-700">
+                      <div className="space-y-1 leading-none flex-1">
+                        <FormLabel className="text-sm text-gray-700 block">
                           I agree to the <a href="#" className="text-primary hover:underline">Terms</a> and <a href="#" className="text-primary hover:underline">Privacy Policy</a>
                         </FormLabel>
                         <FormMessage className="text-xs" />
