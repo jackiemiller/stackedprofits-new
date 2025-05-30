@@ -255,7 +255,7 @@ export default function LeadForm() {
                     />
                   </div>
 
-                  <FormField
+                                    <FormField
                     control={form.control}
                     name="terms"
                     render={({ field }) => (
@@ -268,7 +268,7 @@ export default function LeadForm() {
                           />
                         </FormControl>
                         <div className="space-y-1 leading-none">
-                          <FormLabel className="text-xs sm:text-sm text-gray-700">
+                          <FormLabel className="text-sm text-gray-700">
                             I agree to the <a href="#" className="text-primary hover:underline">Terms</a> and <a href="#" className="text-primary hover:underline">Privacy Policy</a>
                           </FormLabel>
                           <FormMessage className="text-xs" />
@@ -279,7 +279,7 @@ export default function LeadForm() {
 
                   <Button 
                     type="submit" 
-                    className="w-full text-sm py-2 sm:py-3 bg-primary hover:bg-primary/90" 
+                    className="w-full text-base py-3 bg-primary hover:bg-primary/90 mt-4" 
                     disabled={mutation.isPending}
                   >
                     {mutation.isPending ? "Submitting..." : "Get Started Now"}
