@@ -172,7 +172,7 @@ export default function LeadForm() {
               
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="mt-4 sm:mt-8 space-y-4 sm:space-y-6">
-                  <div className="space-y-3 sm:space-y-4">
+                  <div className="space-y-4 sm:space-y-5">
                     <FormField
                       control={form.control}
                       name="fullName"
@@ -233,7 +233,7 @@ export default function LeadForm() {
                       control={form.control}
                       name="websiteType"
                       render={({ field }) => (
-                        <FormItem>
+                        <FormItem className="mb-6">
                           <FormLabel className="text-sm text-gray-700">Website type</FormLabel>
                           <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>

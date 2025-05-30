@@ -118,8 +118,8 @@ export default function FAQSection({ faqs }: FAQSectionProps) {
                 className="border border-gray-200 rounded-md overflow-hidden"
                 data-faq-item={`faq-${faq.id}`}
               >
-                <AccordionTrigger className="text-sm font-medium text-gray-900 hover:text-primary px-3 sm:text-lg sm:px-4 overflow-hidden">
-                  <span className="text-left pr-2">{faq.question}</span>
+                <AccordionTrigger className="text-sm font-medium text-gray-900 hover:text-primary px-2 py-1 sm:text-lg sm:px-3 overflow-hidden gap-1">
+                  <span className="text-left flex-1">{faq.question}</span>
                 </AccordionTrigger>
                 <AccordionContent className="text-xs text-gray-500 px-3 pb-3 sm:text-base sm:px-4 sm:pb-4">
                   <p>{faq.answer}</p>
