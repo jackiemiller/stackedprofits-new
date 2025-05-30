@@ -3,5 +3,6 @@ import App from "./App";
 import "./index.css";
 import "./mobile.css"; // Import mobile-specific styles
 import "./mobile-fix.js"; // Import mobile fixes that run on load
+import "./components/ui/accordion-mobile.css"; // Import accordion mobile fixes
 
 createRoot(document.getElementById("root")!).render(<App />);
