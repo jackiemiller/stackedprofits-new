@@ -12,7 +12,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto py-8 px-4 overflow-hidden sm:py-12 sm:px-6 lg:px-8">
         
         {/* Contact Information - Mobile Bottom Placement */}
-        <div className="flex flex-col justify-center items-center space-y-3 mb-6">
+        <div className="flex flex-col justify-center items-center space-y-3 mb-6 text-center">
           <a href="tel:904-424-3654" className="text-lg font-bold hover:text-primary transition-colors">
             <span className="text-green-600">Call:</span> <span className="text-gray-800">904-424-3654</span>
           </a>

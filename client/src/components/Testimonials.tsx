@@ -59,7 +59,7 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
                 <div className="p-4 flex flex-col h-full">
                   <div className="flex items-center mb-3">
                     {Array.from({ length: parseInt(testimonial.rating) }).map((_, i) => (
-                      <StarIcon key={i} className="h-3 w-3 text-yellow-400 fill-current" />
+                      <span key={i} className="text-yellow-400 text-sm">★</span>
                     ))}
                   </div>
                   
