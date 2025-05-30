@@ -7,7 +7,6 @@ import Home from "@/pages/Home";
 import ThankYou from "@/pages/ThankYou";
 import MobileView from "@/components/MobileView";
 import ChatWidget from "@/components/ChatWidget";
-import MobileOnlyHero from "@/components/MobileOnlyHero";
 import { useEffect, useState } from "react";
 
 function Router() {
@@ -22,27 +21,8 @@ function Router() {
 }
 
 function App() {
-  const [isMobile, setIsMobile] = useState(false);
-  
-  useEffect(() => {
-    // Simple mobile detection
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    // Check on initial load
-    checkMobile();
-    
-    // Add resize listener
-    window.addEventListener('resize', checkMobile);
-    
-    // Cleanup
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-  
   return (
     <QueryClientProvider client={queryClient}>
-      {isMobile && <MobileOnlyHero />}
       <Router />
       <Toaster />
       <ChatWidget />
@@ -51,4 +31,3 @@ function App() {
 }
 
 export default App;
-

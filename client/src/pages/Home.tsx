@@ -1,10 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import MobileHeroBasic from "@/components/MobileHeroBasic";
-import MobileHeroSection from "@/components/MobileHeroSection";
 import Benefits from "@/components/Benefits";
-import SEOSection from "@/components/SEOSection";
 import HostingPlan from "@/components/HostingPlan";
 import PricingTable from "@/components/PricingTable";
 import Testimonials from "@/components/Testimonials";
@@ -63,7 +61,7 @@ export default function Home() {
       <main id="main-content" role="main">
         <section aria-labelledby="hero-heading">
           {isMobile ? (
-            <MobileHeroSection />
+            <MobileHeroBasic />
           ) : (
             <Hero />
           )}
