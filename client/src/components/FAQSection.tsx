@@ -110,15 +110,15 @@ export default function FAQSection({ faqs }: FAQSectionProps) {
         </h2>
         
         <div className="mt-6 max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="w-full space-y-2">
+          <Accordion type="single" collapsible className="w-full space-y-2 overflow-hidden">
             {displayFaqs.map((faq) => (
               <AccordionItem 
                 key={faq.id} 
                 value={`faq-${faq.id}`} 
-                className="border border-gray-200 rounded-md"
+                className="border border-gray-200 rounded-md overflow-hidden"
                 data-faq-item={`faq-${faq.id}`}
               >
-                <AccordionTrigger className="text-sm font-medium text-gray-900 hover:text-primary px-3 py-3 sm:text-lg sm:px-4">
+                <AccordionTrigger className="text-sm font-medium text-gray-900 hover:text-primary px-3 py-3 sm:text-lg sm:px-4 overflow-hidden">
                   <span className="text-left">{faq.question}</span>
                 </AccordionTrigger>
                 <AccordionContent className="text-xs text-gray-500 px-3 pb-3 sm:text-base sm:px-4 sm:pb-4">
