@@ -259,7 +259,7 @@ export default function LeadForm() {
                     control={form.control}
                     name="terms"
                     render={({ field }) => (
-                      <FormItem className="flex flex-row items-start space-x-3 space-y-0 mb-4">
+                      <FormItem className="flex flex-row items-start space-x-3 space-y-0 mb-6 mt-6">
                         <FormControl>
                           <Checkbox
                             checked={field.value}
