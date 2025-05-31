@@ -14,7 +14,7 @@ export default function Footer() {
         {/* Contact Information - Mobile Bottom Placement */}
         <div className="flex flex-col justify-center items-center space-y-4 mb-6 text-center">
           <a href="tel:904-424-3654" className="flex flex-col items-center hover:text-primary transition-colors">
-            <span className="text-green-600 text-sm font-medium">Call</span>
+            <span className="text-green-600 text-lg font-bold">Call</span>
             <span className="text-gray-800 text-lg font-bold">904-424-3654</span>
           </a>
           <a href="mailto:john@stackedprofits.com" className="text-lg font-bold hover:text-primary transition-colors">

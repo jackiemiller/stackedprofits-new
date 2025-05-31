@@ -127,17 +127,19 @@ export default function LeadForm() {
             </div>
           </div>
           
-          {/* Mobile only condensed header */}
-          <div className="sm:hidden bg-primary px-4 py-6">
-            {/* Logo for mobile contact form */}
-            <div className="mb-4 text-center">
+          {/* Logo above blue background - Mobile only */}
+          <div className="sm:hidden bg-white px-4 py-4">
+            <div className="text-center">
               <img 
                 src="/stacked-profits-logo.png" 
                 alt="Stacked Profits" 
-                className="h-12 mx-auto filter brightness-0 invert"
+                className="h-16 mx-auto"
               />
             </div>
-            
+          </div>
+          
+          {/* Mobile only condensed header */}
+          <div className="sm:hidden bg-primary px-4 py-6">
             <h2 className="text-xl font-extrabold text-white">
               <span className="block">Free Websites That Get</span>
               <span className="block">Local Services Up To 3X More Leads and Clients!</span>
