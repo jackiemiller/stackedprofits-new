@@ -13,8 +13,14 @@ export default function MobileNavbar() {
       <div className="bg-white shadow-sm">
 
         
-        {/* Menu button only */}
-        <div className="py-2 px-3 flex justify-end items-center">
+        {/* Logo and menu button */}
+        <div className="py-2 px-3 flex justify-between items-center">
+          <Link href="/" className="flex items-center">
+            <span className="text-lg font-bold">
+              <span className="text-blue-800">Stacked</span>{" "}
+              <span className="text-green-600">Profits</span>
+            </span>
+          </Link>
           <button 
             onClick={toggleMenu} 
             className="p-2 rounded-md text-gray-700 hover:text-primary focus:outline-none"

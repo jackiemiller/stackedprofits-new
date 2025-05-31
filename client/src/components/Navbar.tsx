@@ -1,6 +1,5 @@
 import { Link } from "wouter";
 import { useMobile } from "@/hooks/use-mobile";
-import { useState } from "react";
 import { ChevronDown, Phone, Mail } from "lucide-react";
 import {
   DropdownMenu,
@@ -47,7 +46,10 @@ export default function Navbar() {
           <div className="flex justify-between h-16">
             <div className="flex items-center">
               <Link href="/" className="flex-shrink-0 flex items-center">
-                <img src={logoImage} alt="Stacked Profits" className="h-8 w-auto" />
+                <span className="text-xl font-bold">
+                  <span className="text-blue-800">Stacked</span>{" "}
+                  <span className="text-green-600">Profits</span>
+                </span>
               </Link>
             </div>
             
