@@ -1,14 +1,18 @@
+import { Link } from "wouter";
+
 export default function MobileHeroBasic() {
   return (
     <div className="bg-white px-4 py-6 block md:hidden" id="hero-mobile">
       <div className="text-center">
         {/* Logo positioned better - where broken link was */}
         <div className="mb-4">
-          <img 
-            src="/assets/stacked-profits-logo.png" 
-            alt="Stacked Profits" 
-            className="h-12 mx-auto"
-          />
+          <Link href="/" className="inline-block">
+            <img 
+              src="/assets/stacked-profits-logo.png" 
+              alt="Stacked Profits" 
+              className="h-12 mx-auto"
+            />
+          </Link>
         </div>
         
         <h1 className="text-2xl font-bold text-gray-900">

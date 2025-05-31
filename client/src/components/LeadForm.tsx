@@ -8,6 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { CheckIcon } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
+import { Link } from "wouter";
 import { apiRequest } from "@/lib/queryClient";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
@@ -130,11 +131,13 @@ export default function LeadForm() {
           {/* Logo above blue background - Mobile only */}
           <div className="sm:hidden bg-white px-4 py-4">
             <div className="text-center">
-              <img 
-                src="/stacked-profits-logo.png" 
-                alt="Stacked Profits" 
-                className="h-16 mx-auto"
-              />
+              <Link href="/" className="inline-block">
+                <img 
+                  src="/assets/stacked-profits-logo.png" 
+                  alt="Stacked Profits" 
+                  className="h-16 mx-auto"
+                />
+              </Link>
             </div>
           </div>
           
