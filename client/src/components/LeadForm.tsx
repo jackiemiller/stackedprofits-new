@@ -131,10 +131,9 @@ export default function LeadForm() {
           {/* Logo above blue background - Mobile only */}
           <div className="sm:hidden bg-white px-4 py-4">
             <div className="text-center">
-              <Link href="/" className="inline-flex items-center gap-2">
-                <img src="/favicon.png" alt="" className="w-10 h-10" />
+              <Link href="/" className="inline-block">
                 <span className="text-3xl font-bold">
-                  <span className="text-blue-600">Stacked</span>{" "}
+                  <span className="text-blue-800">Stacked</span>{" "}
                   <span className="text-green-600">Profits</span>
                 </span>
               </Link>

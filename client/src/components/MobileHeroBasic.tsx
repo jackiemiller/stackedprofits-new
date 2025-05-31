@@ -6,10 +6,9 @@ export default function MobileHeroBasic() {
       <div className="text-center">
         {/* Logo positioned better - where broken link was */}
         <div className="mb-4">
-          <Link href="/" className="inline-flex items-center gap-2">
-            <img src="/favicon.png" alt="" className="w-8 h-8" />
+          <Link href="/" className="inline-block">
             <span className="text-2xl font-bold">
-              <span className="text-blue-600">Stacked</span>{" "}
+              <span className="text-blue-800">Stacked</span>{" "}
               <span className="text-green-600">Profits</span>
             </span>
           </Link>
