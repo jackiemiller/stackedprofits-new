@@ -46,7 +46,15 @@ export default function Navbar() {
           <div className="flex justify-between h-16">
             <div className="flex items-center">
               <Link href="/" className="flex-shrink-0 flex items-center">
-                <img src="/stacked-profits-logo.png" alt="Stacked Profits" className="h-8 w-auto" />
+                <img 
+                  src="/stacked-profits-logo.png" 
+                  alt="Stacked Profits" 
+                  className="h-8 w-auto" 
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.parentElement!.innerHTML = '<span class="text-xl font-bold"><span class="text-blue-800">Stacked</span> <span class="text-green-600">Profits</span></span>';
+                  }}
+                />
               </Link>
             </div>
             
