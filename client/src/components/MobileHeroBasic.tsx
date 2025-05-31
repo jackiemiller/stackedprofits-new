@@ -7,11 +7,9 @@ export default function MobileHeroBasic() {
         {/* Logo positioned better - where broken link was */}
         <div className="mb-4">
           <Link href="/" className="inline-block">
-            <img 
-              src="/assets/stacked-profits-logo.png" 
-              alt="Stacked Profits" 
-              className="h-12 mx-auto"
-            />
+            <div className="text-center">
+              <span className="text-2xl font-bold text-primary">Stacked Profits</span>
+            </div>
           </Link>
         </div>
         

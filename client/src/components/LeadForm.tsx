@@ -132,11 +132,9 @@ export default function LeadForm() {
           <div className="sm:hidden bg-white px-4 py-4">
             <div className="text-center">
               <Link href="/" className="inline-block">
-                <img 
-                  src="/assets/stacked-profits-logo.png" 
-                  alt="Stacked Profits" 
-                  className="h-16 mx-auto"
-                />
+                <div className="text-center">
+                  <span className="text-2xl font-bold text-primary">Stacked Profits</span>
+                </div>
               </Link>
             </div>
           </div>
