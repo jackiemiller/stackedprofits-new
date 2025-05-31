@@ -1,5 +1,4 @@
 import { Link } from "wouter";
-import logoImage from "../assets/stacked-profits-logo.png";
 
 export default function MobileHeroBasic() {
   return (
@@ -9,7 +8,7 @@ export default function MobileHeroBasic() {
         <div className="mb-4">
           <Link href="/" className="inline-block">
             <img 
-              src={logoImage} 
+              src="/stacked-profits-logo.png" 
               alt="Stacked Profits" 
               className="h-12 mx-auto"
             />
