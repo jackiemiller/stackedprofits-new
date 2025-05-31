@@ -8,7 +8,7 @@ export default function MobileHeroBasic() {
         <div className="mb-4">
           <Link href="/" className="inline-block">
             <img 
-              src="/assets/stacked-profits-logo.png" 
+              src="/stacked-profits-logo.png" 
               alt="Stacked Profits" 
               className="h-12 mx-auto"
             />

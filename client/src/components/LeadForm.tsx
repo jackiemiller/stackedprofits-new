@@ -133,7 +133,7 @@ export default function LeadForm() {
             <div className="text-center">
               <Link href="/" className="inline-block">
                 <img 
-                  src="/assets/stacked-profits-logo.png" 
+                  src="/stacked-profits-logo.png" 
                   alt="Stacked Profits" 
                   className="h-16 mx-auto"
                 />
