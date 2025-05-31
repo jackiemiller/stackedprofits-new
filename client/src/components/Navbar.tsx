@@ -46,10 +46,7 @@ export default function Navbar() {
           <div className="flex justify-between h-16">
             <div className="flex items-center">
               <Link href="/" className="flex-shrink-0 flex items-center">
-                <span className="text-xl font-bold">
-                  <span className="text-blue-800">Stacked</span>{" "}
-                  <span className="text-green-600">Profits</span>
-                </span>
+                <img src="/stacked-profits-logo.png" alt="Stacked Profits" className="h-8 w-auto" />
               </Link>
             </div>
             
