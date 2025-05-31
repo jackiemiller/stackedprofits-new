@@ -6,16 +6,12 @@ export default function MobileHeroBasic() {
       <div className="text-center">
         {/* Logo positioned better - where broken link was */}
         <div className="mb-4">
-          <Link href="/" className="inline-block">
-            <img 
-              src="/stacked-profits-logo-square.png" 
-              alt="Stacked Profits" 
-              className="h-12 mx-auto"
-              onError={(e) => {
-                e.currentTarget.style.display = 'none';
-                e.currentTarget.parentElement!.innerHTML = '<span class="text-2xl font-bold text-primary">Stacked Profits</span>';
-              }}
-            />
+          <Link href="/" className="inline-flex items-center gap-2">
+            <img src="/favicon.png" alt="" className="w-8 h-8" />
+            <span className="text-2xl font-bold">
+              <span className="text-blue-600">Stacked</span>{" "}
+              <span className="text-green-600">Profits</span>
+            </span>
           </Link>
         </div>
         

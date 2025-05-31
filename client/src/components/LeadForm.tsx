@@ -131,16 +131,12 @@ export default function LeadForm() {
           {/* Logo above blue background - Mobile only */}
           <div className="sm:hidden bg-white px-4 py-4">
             <div className="text-center">
-              <Link href="/" className="inline-block">
-                <img 
-                  src="/stacked-profits-logo-square.png" 
-                  alt="Stacked Profits" 
-                  className="h-16 mx-auto"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    e.currentTarget.parentElement!.innerHTML = '<span class="text-2xl font-bold text-primary">Stacked Profits</span>';
-                  }}
-                />
+              <Link href="/" className="inline-flex items-center gap-2">
+                <img src="/favicon.png" alt="" className="w-10 h-10" />
+                <span className="text-3xl font-bold">
+                  <span className="text-blue-600">Stacked</span>{" "}
+                  <span className="text-green-600">Profits</span>
+                </span>
               </Link>
             </div>
           </div>
