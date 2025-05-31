@@ -133,9 +133,13 @@ export default function LeadForm() {
             <div className="text-center">
               <Link href="/" className="inline-block">
                 <img 
-                  src="/assets/stacked-profits-logo.png" 
+                  src="/stacked-profits-logo-square.png" 
                   alt="Stacked Profits" 
                   className="h-16 mx-auto"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.parentElement!.innerHTML = '<span class="text-2xl font-bold text-primary">Stacked Profits</span>';
+                  }}
                 />
               </Link>
             </div>
