@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import logoImage from "../assets/stacked-profits-logo.png";
 
 export default function MobileHeroBasic() {
   return (
@@ -7,9 +8,11 @@ export default function MobileHeroBasic() {
         {/* Logo positioned better - where broken link was */}
         <div className="mb-4">
           <Link href="/" className="inline-block">
-            <div className="text-center">
-              <span className="text-2xl font-bold text-primary">Stacked Profits</span>
-            </div>
+            <img 
+              src={logoImage} 
+              alt="Stacked Profits" 
+              className="h-12 mx-auto"
+            />
           </Link>
         </div>
         

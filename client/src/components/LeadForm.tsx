@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { CheckIcon } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
 import { Link } from "wouter";
+import logoImage from "../assets/stacked-profits-logo.png";
 import { apiRequest } from "@/lib/queryClient";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
@@ -132,9 +133,11 @@ export default function LeadForm() {
           <div className="sm:hidden bg-white px-4 py-4">
             <div className="text-center">
               <Link href="/" className="inline-block">
-                <div className="text-center">
-                  <span className="text-2xl font-bold text-primary">Stacked Profits</span>
-                </div>
+                <img 
+                  src={logoImage} 
+                  alt="Stacked Profits" 
+                  className="h-16 mx-auto"
+                />
               </Link>
             </div>
           </div>
