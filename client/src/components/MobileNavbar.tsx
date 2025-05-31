@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { useState } from "react";
 import { Menu, X, Phone, Mail } from "lucide-react";
-import logoImage from "../assets/logo.png";
+
 
 export default function MobileNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,15 +11,10 @@ export default function MobileNavbar() {
   return (
     <div className="sticky top-0 z-50">
       <div className="bg-white shadow-sm">
-        {/* Logo at the top */}
-        <div className="flex justify-center py-2">
-          <Link href="/" className="flex-shrink-0">
-            <img src={logoImage} alt="Stacked Profits" className="h-8 w-auto" />
-          </Link>
-        </div>
+
         
         {/* Menu button only */}
-        <div className="py-2 px-3 flex justify-end items-center border-t border-gray-100">
+        <div className="py-2 px-3 flex justify-end items-center">
           <button 
             onClick={toggleMenu} 
             className="p-2 rounded-md text-gray-700 hover:text-primary focus:outline-none"
@@ -50,7 +45,7 @@ export default function MobileNavbar() {
             {/* Logo at the top of menu items */}
             <div className="flex justify-center py-5">
               <Link href="/" onClick={() => setIsMenuOpen(false)}>
-                <img src={logoImage} alt="Stacked Profits" className="h-9 w-auto" />
+                <img src="/assets/stacked-profits-logo.png" alt="Stacked Profits" className="h-9 w-auto" />
               </Link>
             </div>
             
