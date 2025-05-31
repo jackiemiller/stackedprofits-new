@@ -2,12 +2,12 @@ export default function MobileHeroBasic() {
   return (
     <div className="bg-white px-4 py-6 block md:hidden" id="hero-mobile">
       <div className="text-center">
-        {/* Logo at the top */}
-        <div className="mb-6">
+        {/* Logo positioned better - where broken link was */}
+        <div className="mb-4">
           <img 
-            src="/stacked-profits-logo.png" 
+            src="/assets/stacked-profits-logo.png" 
             alt="Stacked Profits" 
-            className="h-16 mx-auto"
+            className="h-12 mx-auto"
           />
         </div>
         
