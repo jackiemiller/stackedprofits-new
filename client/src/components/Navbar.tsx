@@ -47,10 +47,10 @@ export default function Navbar() {
             <div className="flex items-center">
               <Link href="/" className="flex-shrink-0 flex items-center">
                 <svg
-                  width="180"
-                  height="32"
-                  viewBox="0 0 180 32"
-                  className="h-8 w-auto"
+                  width="240"
+                  height="40"
+                  viewBox="0 0 240 40"
+                  className="h-10 w-auto"
                 >
                   <defs>
                     <linearGradient id="stackGradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -64,19 +64,19 @@ export default function Navbar() {
                   </defs>
                   
                   {/* Stack Icon */}
-                  <g transform="translate(0,6)">
-                    <path d="M0 8 L8 4 L16 8 L8 12 Z" fill="url(#stackGradient)" />
-                    <path d="M0 12 L8 8 L16 12 L8 16 Z" fill="url(#stackGradient)" opacity="0.8" />
-                    <path d="M0 16 L8 12 L16 16 L8 20 Z" fill="url(#stackGradient)" opacity="0.6" />
+                  <g transform="translate(0,8)">
+                    <path d="M0 10 L10 5 L20 10 L10 15 Z" fill="url(#stackGradient)" />
+                    <path d="M0 15 L10 10 L20 15 L10 20 Z" fill="url(#stackGradient)" opacity="0.8" />
+                    <path d="M0 20 L10 15 L20 20 L10 25 Z" fill="url(#stackGradient)" opacity="0.6" />
                   </g>
                   
                   {/* Stacked Text */}
-                  <text x="22" y="22" fontFamily="Arial, sans-serif" fontSize="14" fontWeight="bold" fill="url(#stackGradient)">
+                  <text x="28" y="27" fontFamily="Arial, sans-serif" fontSize="18" fontWeight="bold" fill="url(#stackGradient)">
                     Stacked
                   </text>
                   
                   {/* Profits Text */}
-                  <text x="82" y="22" fontFamily="Arial, sans-serif" fontSize="14" fontWeight="bold" fill="url(#profitGradient)">
+                  <text x="110" y="27" fontFamily="Arial, sans-serif" fontSize="18" fontWeight="bold" fill="url(#profitGradient)">
                     Profits
                   </text>
                 </svg>
