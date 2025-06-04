@@ -11,6 +11,7 @@ import LeadForm from "@/components/LeadForm";
 import Footer from "@/components/Footer";
 import VideoExplainer from "@/components/VideoExplainer";
 import MobileVideoExplainer from "@/components/MobileVideoExplainer";
+import CFOServicesAnnouncement from "@/components/CFOServicesAnnouncement";
 import { useQuery } from "@tanstack/react-query";
 import { Testimonial, FAQ } from "@shared/schema";
 import { useMobile } from "@/hooks/use-mobile";
@@ -265,6 +266,10 @@ export default function Home() {
         
         <section aria-labelledby="pricing-heading" id="pricing">
           <PricingTable />
+        </section>
+        
+        <section aria-labelledby="cfo-services-heading" id="cfo-services">
+          <CFOServicesAnnouncement />
         </section>
         
         <section aria-labelledby="testimonials-heading" id="testimonials">

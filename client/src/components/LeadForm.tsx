@@ -247,19 +247,21 @@ export default function LeadForm() {
                       name="websiteType"
                       render={({ field }) => (
                         <FormItem className="mb-6">
-                          <FormLabel className="text-sm text-gray-700">Website type</FormLabel>
+                          <FormLabel className="text-sm text-gray-700">Primary service interest</FormLabel>
                           <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
                               <SelectTrigger className="text-sm border-gray-300 focus:ring-primary focus:border-primary">
-                                <SelectValue placeholder="Select website type" />
+                                <SelectValue placeholder="Select service of interest" />
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent>
-                              <SelectItem value="business">Business website</SelectItem>
-                              <SelectItem value="ecommerce">E-commerce store</SelectItem>
-                              <SelectItem value="portfolio">Portfolio/Personal</SelectItem>
-                              <SelectItem value="blog">Blog</SelectItem>
-                              <SelectItem value="other">Other</SelectItem>
+                              <SelectItem value="website">Website & Digital Marketing</SelectItem>
+                              <SelectItem value="cfo-services">CFO Services</SelectItem>
+                              <SelectItem value="google-business">Google Business Profile</SelectItem>
+                              <SelectItem value="seo">SEO & Local Search</SelectItem>
+                              <SelectItem value="content-marketing">Content Marketing</SelectItem>
+                              <SelectItem value="full-package">Complete Business Package</SelectItem>
+                              <SelectItem value="consultation">Free Consultation</SelectItem>
                             </SelectContent>
                           </Select>
                           <FormMessage className="text-xs" />
