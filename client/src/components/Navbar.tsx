@@ -76,7 +76,7 @@ export default function Navbar() {
                   </text>
                   
                   {/* Profits Text */}
-                  <text x="110" y="27" fontFamily="Arial, sans-serif" fontSize="18" fontWeight="bold" fill="url(#profitGradient)">
+                  <text x="95" y="27" fontFamily="Arial, sans-serif" fontSize="18" fontWeight="bold" fill="url(#profitGradient)">
                     Profits
                   </text>
                 </svg>
