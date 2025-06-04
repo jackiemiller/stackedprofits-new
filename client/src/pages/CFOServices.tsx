@@ -3,13 +3,20 @@ import { Link } from "wouter";
 import { CheckCircle, Phone, Mail, TrendingUp, DollarSign, PieChart, BarChart3, Calculator, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export default function CFOServices() {
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <header role="banner">
+        <Navbar />
+      </header>
+      
+      <main role="main">
+        {/* Hero Section */}
+        <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Fractional CFO Services
@@ -19,12 +26,12 @@ export default function CFOServices() {
               Strategic financial guidance to scale your business profitably.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-green-600 hover:bg-green-700 text-lg px-8 py-3">
-                <a href="#get-started">Get Started Today</a>
-              </Button>
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-blue-800 text-lg px-8 py-3">
-                <a href="#services">View Services</a>
-              </Button>
+              <a href="#get-started" className="inline-flex items-center justify-center bg-green-600 hover:bg-green-700 text-white text-lg px-8 py-3 rounded-md font-medium transition-colors">
+                Get Started Today
+              </a>
+              <a href="#services" className="inline-flex items-center justify-center border-2 border-white text-white hover:bg-white hover:text-blue-800 text-lg px-8 py-3 rounded-md font-medium transition-colors">
+                View Services
+              </a>
             </div>
           </div>
         </div>
@@ -359,6 +366,11 @@ export default function CFOServices() {
           </p>
         </div>
       </section>
+      </main>
+      
+      <footer role="contentinfo">
+        <Footer />
+      </footer>
     </div>
   );
 }
