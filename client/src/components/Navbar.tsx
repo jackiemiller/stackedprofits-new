@@ -7,7 +7,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import logoImage from "../assets/logo.png";
+// import logoImage from "../assets/logo.png";
 import MobileNavbar from "./MobileNavbar";
 
 export default function Navbar() {
@@ -65,6 +65,9 @@ export default function Navbar() {
               <a href="#pricing" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-primary after:transition-all after:duration-300">
                 Pricing
               </a>
+              <Link href="/cfo-services" className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 hover:after:w-full after:bg-primary after:transition-all after:duration-300">
+                CFO Services
+              </Link>
               <DropdownMenu>
                 <DropdownMenuTrigger className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-primary">
                   Services <ChevronDown className="ml-1 h-4 w-4" />
