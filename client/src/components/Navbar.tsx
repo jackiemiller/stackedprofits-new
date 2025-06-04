@@ -7,8 +7,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-// import logoImage from "../assets/logo.png";
 import MobileNavbar from "./MobileNavbar";
+// Logo import removed - using SVG instead
 
 export default function Navbar() {
   const isMobile = useMobile();
