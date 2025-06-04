@@ -7,29 +7,14 @@ import Home from "@/pages/Home";
 import ThankYou from "@/pages/ThankYou";
 import MobileView from "@/components/MobileView";
 import ChatWidget from "@/components/ChatWidget";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 // Inline CFO Services component to avoid import issues
 function CFOServicesPage() {
   return (
     <div className="min-h-screen bg-white">
-      <header>
-        <nav className="bg-white border-b">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center h-16">
-              <div className="flex items-center">
-                <span className="text-xl font-bold text-blue-700">Stacked</span>
-                <span className="text-xl font-bold text-green-600 ml-1">Profits</span>
-              </div>
-              <div className="hidden md:block">
-                <div className="ml-10 flex items-baseline space-x-4">
-                  <a href="/" className="text-gray-700 hover:text-blue-700 px-3 py-2 text-sm font-medium">Home</a>
-                  <a href="/cfo-services" className="text-blue-700 px-3 py-2 text-sm font-medium border-b-2 border-blue-700">CFO Services</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </header>
+      <Navbar />
 
       <main>
         {/* Hero Section */}
@@ -198,6 +183,8 @@ function CFOServicesPage() {
           </div>
         </section>
       </main>
+      
+      <Footer />
     </div>
   );
 }
