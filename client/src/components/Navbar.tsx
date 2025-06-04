@@ -46,11 +46,40 @@ export default function Navbar() {
           <div className="flex justify-between h-16">
             <div className="flex items-center">
               <Link href="/" className="flex-shrink-0 flex items-center">
-                <img 
-                  src="/assets/stacked-profits-logo.png" 
-                  alt="Stacked Profits" 
-                  className="h-8 w-auto" 
-                />
+                <svg
+                  width="180"
+                  height="32"
+                  viewBox="0 0 180 32"
+                  className="h-8 w-auto"
+                >
+                  <defs>
+                    <linearGradient id="stackGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#1e3a8a" />
+                      <stop offset="100%" stopColor="#1e40af" />
+                    </linearGradient>
+                    <linearGradient id="profitGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#16a34a" />
+                      <stop offset="100%" stopColor="#15803d" />
+                    </linearGradient>
+                  </defs>
+                  
+                  {/* Stack Icon */}
+                  <g transform="translate(0,6)">
+                    <path d="M0 8 L8 4 L16 8 L8 12 Z" fill="url(#stackGradient)" />
+                    <path d="M0 12 L8 8 L16 12 L8 16 Z" fill="url(#stackGradient)" opacity="0.8" />
+                    <path d="M0 16 L8 12 L16 16 L8 20 Z" fill="url(#stackGradient)" opacity="0.6" />
+                  </g>
+                  
+                  {/* Stacked Text */}
+                  <text x="22" y="22" fontFamily="Arial, sans-serif" fontSize="14" fontWeight="bold" fill="url(#stackGradient)">
+                    Stacked
+                  </text>
+                  
+                  {/* Profits Text */}
+                  <text x="82" y="22" fontFamily="Arial, sans-serif" fontSize="14" fontWeight="bold" fill="url(#profitGradient)">
+                    Profits
+                  </text>
+                </svg>
               </Link>
             </div>
             
