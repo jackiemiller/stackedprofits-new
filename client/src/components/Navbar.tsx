@@ -47,7 +47,7 @@ export default function Navbar() {
             <div className="flex items-center">
               <Link href="/" className="flex-shrink-0 flex items-center">
                 <img 
-                  src="/stacked-profits-logo.png" 
+                  src="/assets/stacked-profits-logo.png" 
                   alt="Stacked Profits" 
                   className="h-8 w-auto" 
                 />
