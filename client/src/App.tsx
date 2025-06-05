@@ -5,7 +5,6 @@ import { Toaster } from "@/components/ui/toaster";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import ThankYou from "@/pages/ThankYou";
-import MobileView from "@/components/MobileView";
 import ChatWidget from "@/components/ChatWidget";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -195,7 +194,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/cfo-services" component={CFOServicesPage} />
       <Route path="/thank-you" component={ThankYou} />
-      <Route path="/mobile-preview" component={MobileView} />
+
       <Route component={NotFound} />
     </Switch>
   );

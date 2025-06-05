@@ -46,40 +46,11 @@ export default function Navbar() {
           <div className="flex justify-between h-16">
             <div className="flex items-center">
               <Link href="/" className="flex-shrink-0 flex items-center">
-                <svg
-                  width="240"
-                  height="40"
-                  viewBox="0 0 240 40"
+                <img
+                  src="/assets/stacked-profits-logo.png"
+                  alt="Stacked Profits"
                   className="h-10 w-auto"
-                >
-                  <defs>
-                    <linearGradient id="stackGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#1e3a8a" />
-                      <stop offset="100%" stopColor="#1e40af" />
-                    </linearGradient>
-                    <linearGradient id="profitGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#16a34a" />
-                      <stop offset="100%" stopColor="#15803d" />
-                    </linearGradient>
-                  </defs>
-                  
-                  {/* Stack Icon */}
-                  <g transform="translate(0,8)">
-                    <path d="M0 10 L10 5 L20 10 L10 15 Z" fill="url(#stackGradient)" />
-                    <path d="M0 15 L10 10 L20 15 L10 20 Z" fill="url(#stackGradient)" opacity="0.8" />
-                    <path d="M0 20 L10 15 L20 20 L10 25 Z" fill="url(#stackGradient)" opacity="0.6" />
-                  </g>
-                  
-                  {/* Stacked Text */}
-                  <text x="28" y="27" fontFamily="Arial, sans-serif" fontSize="18" fontWeight="bold" fill="url(#stackGradient)">
-                    Stacked
-                  </text>
-                  
-                  {/* Profits Text */}
-                  <text x="105" y="27" fontFamily="Arial, sans-serif" fontSize="18" fontWeight="bold" fill="url(#profitGradient)">
-                    Profits
-                  </text>
-                </svg>
+                />
               </Link>
             </div>
             
@@ -136,12 +107,6 @@ export default function Navbar() {
             </div>
             
             <div className="flex items-center space-x-2">
-              <a 
-                href="/mobile-preview" 
-                className="inline-flex items-center px-3 py-1.5 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 transition-all duration-300 focus:outline-none focus:ring-1 focus:ring-gray-300"
-              >
-                Mobile Preview
-              </a>
               <a 
                 href="#get-started" 
                 className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-primary to-secondary hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"

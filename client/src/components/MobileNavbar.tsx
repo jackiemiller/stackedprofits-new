@@ -16,10 +16,11 @@ export default function MobileNavbar() {
         {/* Logo and menu button */}
         <div className="py-2 px-3 flex justify-between items-center">
           <Link href="/" className="flex items-center">
-            <span className="text-lg font-bold">
-              <span className="text-blue-800">Stacked</span>{" "}
-              <span className="text-green-600">Profits</span>
-            </span>
+            <img
+              src="/assets/stacked-profits-logo.png"
+              alt="Stacked Profits"
+              className="h-8 w-auto"
+            />
           </Link>
           <button 
             onClick={toggleMenu} 
@@ -51,7 +52,11 @@ export default function MobileNavbar() {
             {/* Logo at the top of menu items */}
             <div className="flex justify-center py-5">
               <Link href="/" onClick={() => setIsMenuOpen(false)}>
-                <img src="/assets/stacked-profits-logo.png" alt="Stacked Profits" className="h-9 w-auto" />
+                <img
+                  src="/assets/stacked-profits-logo.png"
+                  alt="Stacked Profits"
+                  className="h-8 w-auto"
+                />
               </Link>
             </div>
             
@@ -71,6 +76,13 @@ export default function MobileNavbar() {
               >
                 Pricing
               </a>
+              <Link
+                href="/cfo-services"
+                className="block px-2 py-1.5 rounded-md text-sm font-medium text-gray-700 hover:text-primary hover:bg-gray-50"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                CFO Services
+              </Link>
               
               {/* Services submenu */}
               <div className="px-2 py-1.5 text-sm font-medium text-gray-700">
