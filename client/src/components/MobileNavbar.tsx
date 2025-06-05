@@ -16,11 +16,10 @@ export default function MobileNavbar() {
         {/* Logo and menu button */}
         <div className="py-2 px-3 flex justify-between items-center">
           <Link href="/" className="flex items-center">
-            <img
-              src="/assets/stacked-profits-logo.png"
-              alt="Stacked Profits"
-              className="h-8 w-auto"
-            />
+            <span className="text-lg font-bold">
+              <span className="text-blue-800">Stacked</span>{" "}
+              <span className="text-green-600">Profits</span>
+            </span>
           </Link>
           <button 
             onClick={toggleMenu} 
@@ -52,11 +51,10 @@ export default function MobileNavbar() {
             {/* Logo at the top of menu items */}
             <div className="flex justify-center py-5">
               <Link href="/" onClick={() => setIsMenuOpen(false)}>
-                <img
-                  src="/assets/stacked-profits-logo.png"
-                  alt="Stacked Profits"
-                  className="h-8 w-auto"
-                />
+                <span className="text-xl font-bold">
+                  <span className="text-blue-800">Stacked</span>{" "}
+                  <span className="text-green-600">Profits</span>
+                </span>
               </Link>
             </div>
             

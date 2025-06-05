@@ -46,11 +46,40 @@ export default function Navbar() {
           <div className="flex justify-between h-16">
             <div className="flex items-center">
               <Link href="/" className="flex-shrink-0 flex items-center">
-                <img
-                  src="/assets/stacked-profits-logo.png"
-                  alt="Stacked Profits"
+                <svg
+                  width="240"
+                  height="40"
+                  viewBox="0 0 240 40"
                   className="h-10 w-auto"
-                />
+                >
+                  <defs>
+                    <linearGradient id="stackGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#1e3a8a" />
+                      <stop offset="100%" stopColor="#1e40af" />
+                    </linearGradient>
+                    <linearGradient id="profitGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#16a34a" />
+                      <stop offset="100%" stopColor="#15803d" />
+                    </linearGradient>
+                  </defs>
+                  
+                  {/* Stack Icon */}
+                  <g transform="translate(0,8)">
+                    <path d="M0 10 L10 5 L20 10 L10 15 Z" fill="url(#stackGradient)" />
+                    <path d="M0 15 L10 10 L20 15 L10 20 Z" fill="url(#stackGradient)" opacity="0.8" />
+                    <path d="M0 20 L10 15 L20 20 L10 25 Z" fill="url(#stackGradient)" opacity="0.6" />
+                  </g>
+                  
+                  {/* Stacked Text */}
+                  <text x="28" y="27" fontFamily="Arial, sans-serif" fontSize="18" fontWeight="bold" fill="url(#stackGradient)">
+                    Stacked
+                  </text>
+                  
+                  {/* Profits Text - with proper spacing */}
+                  <text x="110" y="27" fontFamily="Arial, sans-serif" fontSize="18" fontWeight="bold" fill="url(#profitGradient)">
+                    Profits
+                  </text>
+                </svg>
               </Link>
             </div>
             
