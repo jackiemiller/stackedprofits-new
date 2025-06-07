@@ -75,8 +75,8 @@ export default function Navbar() {
                     Stacked
                   </text>
                   
-                  {/* Profits Text - with proper spacing */}
-                  <text x="110" y="27" fontFamily="Arial, sans-serif" fontSize="18" fontWeight="bold" fill="url(#profitGradient)">
+                  {/* Profits Text - with closer spacing */}
+                  <text x="105" y="27" fontFamily="Arial, sans-serif" fontSize="18" fontWeight="bold" fill="url(#profitGradient)">
                     Profits
                   </text>
                 </svg>

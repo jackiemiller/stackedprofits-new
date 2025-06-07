@@ -8,7 +8,7 @@ export default function MobileHeroBasic() {
         <div className="mb-4">
           <Link href="/" className="inline-block">
             <span className="text-2xl font-bold">
-              <span className="text-blue-800">Stacked</span>{" "}
+              <span className="text-blue-800">Stacked</span>
               <span className="text-green-600">Profits</span>
             </span>
           </Link>
@@ -16,32 +16,32 @@ export default function MobileHeroBasic() {
         
         <h1 className="text-2xl font-bold text-gray-900">
           <span className="block">Free Websites That Get</span>
-          <span className="block text-primary">Local Services</span>
-          <span className="block text-primary">Up To 3X More Leads!</span>
+          <span className="block text-primary">Law Firms</span>
+          <span className="block text-primary">Up To 5X More Clients!</span>
         </h1>
         
         <p className="mt-3 text-sm text-gray-500">
-          <span className="font-medium">Free Website Audit + Hosting Included</span>
+          <span className="font-medium">Free Legal Practice Audit + Hosting Included</span>
         </p>
         
         <p className="mt-2 text-sm text-gray-500">
-          Perfect for Attorneys, Medical, and Home Services
+          Strategic CFO Advisory + Comprehensive Digital Marketing for Legal Practices
         </p>
         
         {/* Growth stats - pill style for mobile */}
         <div className="my-6">
           <div className="flex flex-wrap justify-center gap-3">
             <div className="inline-flex items-center bg-green-500 text-white rounded-full px-4 py-1.5 shadow-md">
-              <span className="font-bold text-lg mr-1">3X</span>
+              <span className="font-bold text-lg mr-1">5X</span>
               <span className="text-xs">Growth</span>
             </div>
             <div className="inline-flex items-center bg-blue-500 text-white rounded-full px-4 py-1.5 shadow-md">
-              <span className="font-bold text-lg mr-1">+208%</span>
-              <span className="text-xs">Leads</span>
+              <span className="font-bold text-lg mr-1">+300%</span>
+              <span className="text-xs">Cases</span>
             </div>
             <div className="inline-flex items-center bg-indigo-500 text-white rounded-full px-4 py-1.5 shadow-md">
-              <span className="font-bold text-lg mr-1">+300%</span>
-              <span className="text-xs">Clients</span>
+              <span className="font-bold text-lg mr-1">+20</span>
+              <span className="text-xs">Hours</span>
             </div>
           </div>
         </div>
@@ -52,19 +52,19 @@ export default function MobileHeroBasic() {
           <ul className="space-y-1.5 text-sm">
             <li className="flex items-start">
               <span className="text-green-500 mr-2">✓</span>
-              <span className="text-gray-700">Free Website Audit</span>
+              <span className="text-gray-700">Free Legal Practice Audit</span>
             </li>
             <li className="flex items-start">
               <span className="text-green-500 mr-2">✓</span>
-              <span className="text-gray-700">High-Speed Hosting</span>
+              <span className="text-gray-700">CFO Advisory Services</span>
             </li>
             <li className="flex items-start">
               <span className="text-green-500 mr-2">✓</span>
-              <span className="text-gray-700">Payment Processing</span>
+              <span className="text-gray-700">Client Acquisition Systems</span>
             </li>
             <li className="flex items-start">
               <span className="text-green-500 mr-2">✓</span>
-              <span className="text-gray-700">Custom Content</span>
+              <span className="text-gray-700">Digital Marketing</span>
             </li>
           </ul>
         </div>

@@ -17,7 +17,7 @@ export default function MobileNavbar() {
         <div className="py-2 px-3 flex justify-between items-center">
           <Link href="/" className="flex items-center">
             <span className="text-lg font-bold">
-              <span className="text-blue-800">Stacked</span>{" "}
+              <span className="text-blue-800">Stacked</span>
               <span className="text-green-600">Profits</span>
             </span>
           </Link>
@@ -52,7 +52,7 @@ export default function MobileNavbar() {
             <div className="flex justify-center py-5">
               <Link href="/" onClick={() => setIsMenuOpen(false)}>
                 <span className="text-xl font-bold">
-                  <span className="text-blue-800">Stacked</span>{" "}
+                  <span className="text-blue-800">Stacked</span>
                   <span className="text-green-600">Profits</span>
                 </span>
               </Link>

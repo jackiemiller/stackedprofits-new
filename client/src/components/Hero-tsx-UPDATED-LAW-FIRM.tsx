@@ -11,37 +11,37 @@ export default function Hero() {
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-900">
             <span className="block">Free Websites That Get</span>
-            <span className="block text-primary">Local Services Up To 3X More Leads!</span>
+            <span className="block text-primary">Law Firms Up To 5X More Clients!</span>
           </h1>
           
           <p className="mt-3 text-sm text-gray-600">
-            <span className="font-medium">Free Website Audit + High-Speed Hosting Included</span>
+            <span className="font-medium">Free Legal Practice Audit + High-Speed Hosting Included</span>
           </p>
           
           <p className="mt-2 text-sm text-gray-600">
-            Perfect for Attorneys, Medical, and Home Services
+            Strategic CFO Advisory + Comprehensive Digital Marketing for Legal Practices
           </p>
           
           {/* Growth stats - Prominent circles */}
           <div className="my-8">
             <div className="flex justify-center gap-3">
               <div className="flex flex-col items-center justify-center w-20 h-20 bg-green-500 text-white rounded-full shadow-lg">
-                <span className="font-bold text-lg">3X</span>
+                <span className="font-bold text-lg">5X</span>
                 <span className="text-xs">Growth</span>
               </div>
               <div className="flex flex-col items-center justify-center w-20 h-20 bg-blue-500 text-white rounded-full shadow-lg">
-                <span className="font-bold text-lg">+208%</span>
-                <span className="text-xs">Leads</span>
+                <span className="font-bold text-lg">+300%</span>
+                <span className="text-xs">Cases</span>
               </div>
               <div className="flex flex-col items-center justify-center w-20 h-20 bg-indigo-500 text-white rounded-full shadow-lg">
-                <span className="font-bold text-lg">+300%</span>
-                <span className="text-xs">Clients</span>
+                <span className="font-bold text-lg">+20</span>
+                <span className="text-xs">Hours</span>
               </div>
             </div>
           </div>
           
           <div className="mt-3 text-sm text-gray-600">
-            All services include <span className="font-medium">Free Website Audit</span>, <span className="font-medium">Invoicing</span>, and <span className="font-medium">Content Marketing</span>.
+            All services include <span className="font-medium">Free Legal Practice Audit</span>, <span className="font-medium">CFO Advisory</span>, and <span className="font-medium">Digital Marketing</span>.
           </div>
           
           <div className="mt-6 space-y-3">
@@ -70,19 +70,19 @@ export default function Hero() {
             <div className="w-1/2 pr-8">
               <h1 id="hero-heading" className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
                 <span className="block">Free Websites That Get</span>
-                <span className="block gradient-text font-extrabold">Local Services Up To 3X More Leads and Clients!</span>
+                <span className="block gradient-text font-extrabold">Law Firms Up To 5X More Clients!</span>
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg md:mt-5 md:text-xl">
-                <span className="font-bold">Free Website Audit + High-Speed Hosting Included</span> — Packages start at just $100/month with monthly content and more.
+                <span className="font-bold">Free Legal Practice Audit + High-Speed Hosting Included</span> — Strategic CFO advisory and comprehensive digital marketing packages start at just $100/month.
               </p>
               <div className="mt-2">
                 <p className="text-base text-gray-500 sm:text-lg md:text-base">
-                  Perfect for <span className="font-medium">Attorneys</span>, <span className="font-medium">Medical Practices</span>, and <span className="font-medium">Home Service Businesses</span> Ready to Grow.
+                  Specialized for <span className="font-medium">Law Firms</span> and <span className="font-medium">Legal Practices</span> Ready to Dominate Their Market and Grow 5X Their Profit.
                 </p>
               </div>
               <div className="mt-2">
                 <p className="text-base text-gray-500 sm:text-lg md:text-base">
-                  All services include <span className="font-medium">Free Website Audit</span>, <span className="font-medium">High-Speed Hosting</span>, <span className="font-medium">Invoicing</span>, <span className="font-medium">Payments</span> and <span className="font-medium">Content Marketing</span>.
+                  All services include <span className="font-medium">Free Legal Practice Audit</span>, <span className="font-medium">High-Speed Hosting</span>, <span className="font-medium">CFO Advisory</span>, <span className="font-medium">Client Acquisition Systems</span> and <span className="font-medium">Digital Marketing</span>.
                 </p>
               </div>
               

@@ -93,8 +93,8 @@ export default function LeadForm() {
           <div className="hidden sm:block pt-8 pb-10 px-4 sm:pt-16 sm:px-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20">
             <div className="lg:self-center">
               <h2 className="text-2xl sm:text-3xl font-extrabold text-white sm:text-4xl">
-                <span className="block">Free Websites That Get</span>
-                <span className="block">Local Services Up To 3X More Leads and Clients!</span>
+                <span className="block">Free Legal Websites That Get</span>
+                <span className="block">Law Firms Up To 5X More Clients!</span>
               </h2>
               <p className="mt-4 text-base sm:text-lg leading-6 text-indigo-200">
                 Starting at just $100/month with our Package 01. No commitment required.
@@ -133,7 +133,7 @@ export default function LeadForm() {
             <div className="text-center">
               <Link href="/" className="inline-block">
                 <span className="text-3xl font-bold">
-                  <span className="text-blue-800">Stacked</span>{" "}
+                  <span className="text-blue-800">Stacked</span>
                   <span className="text-green-600">Profits</span>
                 </span>
               </Link>
@@ -143,8 +143,8 @@ export default function LeadForm() {
           {/* Mobile only condensed header */}
           <div className="sm:hidden bg-primary px-4 py-6">
             <h2 className="text-xl font-extrabold text-white">
-              <span className="block">Free Websites That Get</span>
-              <span className="block">Local Services Up To 3X More Leads and Clients!</span>
+              <span className="block">Free Legal Websites That Get</span>
+              <span className="block">Law Firms Up To 5X More Clients!</span>
             </h2>
             <div className="mt-3 grid grid-cols-2 gap-2">
               <div className="flex items-start">
