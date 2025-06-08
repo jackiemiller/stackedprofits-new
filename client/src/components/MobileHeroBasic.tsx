@@ -4,15 +4,7 @@ export default function MobileHeroBasic() {
   return (
     <div className="bg-white px-4 py-6 block md:hidden" id="hero-mobile">
       <div className="text-center">
-        {/* Logo positioned better - where broken link was */}
-        <div className="mb-4">
-          <Link href="/" className="inline-block">
-            <span className="text-2xl font-bold">
-              <span className="text-blue-800">Stacked</span>
-              <span className="text-green-600">Profits</span>
-            </span>
-          </Link>
-        </div>
+        {/* Removed the duplicate logo to reduce clutter */}
         
         <h1 className="text-2xl font-bold text-gray-900">
           <span className="block">Free Websites That Get</span>
