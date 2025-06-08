@@ -7,7 +7,7 @@ export default function MobileHeroBasic() {
         {/* Removed the duplicate logo to reduce clutter */}
         
         <h1 className="text-2xl font-bold text-gray-900">
-          <span className="block">Free Websites That Get</span>
+          <span className="block">Free Websites and Website Audits That Get</span>
           <span className="block text-primary">Law Firms</span>
           <span className="block text-primary">Up To 5X More Clients!</span>
         </h1>

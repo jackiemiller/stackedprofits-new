@@ -10,7 +10,7 @@ export default function Hero() {
       <div className="block md:hidden py-6 px-4">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-900">
-            <span className="block">Free Websites That Get</span>
+            <span className="block">Free Websites and Website Audits That Get</span>
             <span className="block text-primary">Law Firms Up To 5X More Clients!</span>
           </h1>
           
@@ -69,7 +69,7 @@ export default function Hero() {
             {/* Left column - Text content */}
             <div className="w-1/2 pr-8">
               <h1 id="hero-heading" className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                <span className="block">Free Websites That Get</span>
+                <span className="block">Free Websites and Website Audits That Get</span>
                 <span className="block gradient-text font-extrabold">Law Firms Up To 5X More Clients!</span>
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg md:mt-5 md:text-xl">
