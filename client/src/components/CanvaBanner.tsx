@@ -15,12 +15,17 @@ export default function CanvaBanner() {
     <section className="w-full bg-white py-4">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative">
-          {/* Banner Image */}
-          <img 
-            src="/assets/law-firm-banner.png" 
-            alt="Stacked Profits - Helps Grow Your Law Firm 5X Your Profit and Gain 20+ Hours Weekly Through Strategic CFO Advisory, Comprehensive Digital Marketing, and Automated Client Acquisition and Retention Systems"
-            className="w-full h-auto rounded-lg shadow-lg"
-          />
+          {/* Banner Image - Significantly increased height on mobile */}
+          <div className="w-full">
+            <img 
+              src="/assets/law-firm-banner.png" 
+              alt="Stacked Profits - Helps Grow Your Law Firm 5X Your Profit and Gain 20+ Hours Weekly Through Strategic CFO Advisory, Comprehensive Digital Marketing, and Automated Client Acquisition and Retention Systems"
+              className="w-full rounded-lg shadow-lg 
+                         md:h-auto md:object-contain
+                         sm:h-48 sm:object-cover
+                         h-56 object-cover"
+            />
+          </div>
           
           {/* Clickable Area for "Get Your Free Legal Website Here" */}
           <button
