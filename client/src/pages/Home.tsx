@@ -48,7 +48,7 @@ export default function Home() {
   
   // You would replace this with your actual video ID
   const videoProps = {
-    videoId: 'your-video-id', // Replace with your actual YouTube or Vimeo video ID
+    videoId: 'qnHes6jnyEs', // Replace with your actual YouTube or Vimeo video ID
     platform: 'youtube' as const,
     title: "See How We Help Law Firms Grow 5X Their Profit",
     subtitle: "Watch how our strategic CFO advisory and digital marketing helps legal practices dominate their market"
