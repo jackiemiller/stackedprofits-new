@@ -10,7 +10,7 @@ export default function Hero() {
       <div className="block md:hidden py-6 px-4">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-900">
-            <span className="block">Free Smart Websites and Website Audits That Get</span>
+            <span className="block">Free Websites and Website Audits That Get</span>
             <span className="block text-primary">Law Firms Up To 5X More Clients!</span>
           </h1>
           
