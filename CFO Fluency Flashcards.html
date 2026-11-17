@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CFO Fluency Flashcards</title>
+<style>
+  :root {
+    --bg: #f5f3ef;
+    --card-bg: #ffffff;
+    --ink: #1e1e1e;
+    --muted: #6b6b6b;
+    --accent: #2e5339;
+    --accent-light: #e8f0ea;
+    --border: #d9d4cb;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px 60px;
+    min-height: 100vh;
+  }
+  h1 {
+    font-size: 1.3rem;
+    margin: 4px 0 2px;
+    text-align: center;
+  }
+  .sub {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-bottom: 18px;
+    text-align: center;
+  }
+  .controls {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .filter-btn {
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    color: var(--ink);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    cursor: pointer;
+  }
+  .filter-btn.active {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+  }
+  .progress {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .card-wrap {
+    width: 100%;
+    max-width: 440px;
+    perspective: 1200px;
+  }
+  .card {
+    position: relative;
+    width: 100%;
+    min-height: 280px;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+  }
+  .card.flipped {
+    transform: rotateY(180deg);
+  }
+  .face {
+    position: absolute;
+    width: 100%;
+    min-height: 280px;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    border: 1px solid var(--border);
+  }
+  .front {
+    background: var(--card-bg);
+  }
+  .back {
+    background: var(--accent-light);
+    transform: rotateY(180deg);
+  }
+  .tag {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .prompt {
+    font-size: 1.05rem;
+    line-height: 1.45;
+    font-weight: 500;
+  }
+  .answer {
+    font-size: 0.98rem;
+    line-height: 1.5;
+  }
+  .hint {
+    position: absolute;
+    bottom: 14px;
+    right: 18px;
+    font-size: 0.7rem;
+    color: var(--muted);
+  }
+  .nav {
+    display: flex;
+    gap: 14px;
+    margin-top: 22px;
+  }
+  .nav button {
+    border: none;
+    background: var(--accent);
+    color: white;
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    cursor: pointer;
+  }
+  .nav button:disabled {
+    background: #b9c4bd;
+    cursor: default;
+  }
+  .nav button.secondary {
+    background: var(--card-bg);
+    color: var(--ink);
+    border: 1px solid var(--border);
+  }
+  .tap-hint {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<h1>CFO Fluency Flashcards</h1>
+<div class="sub">Tap the card to reveal the answer</div>
+
+<div class="controls" id="filters"></div>
+<div class="progress" id="progress"></div>
+
+<div class="card-wrap">
+  <div class="card" id="card">
+    <div class="face front">
+      <div class="tag" id="frontTag"></div>
+      <div class="prompt" id="frontText"></div>
+      <div class="hint">tap to flip</div>
+    </div>
+    <div class="face back">
+      <div class="tag" id="backTag">Answer</div>
+      <div class="answer" id="backText"></div>
+      <div class="hint">tap to flip back</div>
+    </div>
+  </div>
+</div>
+
+<div class="tap-hint">Card <span id="cardNum"></span> of <span id="cardTotal"></span></div>
+
+<div class="nav">
+  <button class="secondary" id="prevBtn">&larr; Prev</button>
+  <button id="shuffleBtn">Shuffle</button>
+  <button id="nextBtn">Next &rarr;</button>
+</div>
+
+<script>
+const deck = [
+  {section:"Ratios", front:"Gross Margin — formula and what it tells you?", back:"(Revenue − COGS) ÷ Revenue. Shows how much of every sales dollar remains after direct costs, before overhead. Healthy range varies by industry: services/software run 50-80%+, retail/food run 20-40%."},
+  {section:"Ratios", front:"Net Profit Margin — formula and what it tells you?", back:"Net Income ÷ Revenue. The bottom-line percentage after everything. Small-business healthy range: roughly 5-15%, industry-dependent."},
+  {section:"Ratios", front:"Current Ratio — formula and what it tells you?", back:"Current Assets ÷ Current Liabilities. Measures short-term liquidity. Below 1.0 is a red flag; 1.5-2.0 is generally healthy."},
+  {section:"Ratios", front:"Quick Ratio (Acid Test) — formula and what it tells you?", back:"(Current Assets − Inventory) ÷ Current Liabilities. Stricter liquidity check that excludes inventory. Useful when a business carries a lot of stock."},
+  {section:"Ratios", front:"Days Sales Outstanding (DSO) — formula and what it tells you?", back:"(Accounts Receivable ÷ Total Credit Sales) × Number of Days. How long it takes, on average, to collect payment. Rising DSO = a collections problem brewing."},
+  {section:"Ratios", front:"Debt Service Coverage Ratio (DSCR) — formula and what it tells you?", back:"Net Operating Income ÷ Total Debt Service. Can the business cover its debt payments from operations? Below 1.0 is a serious red flag."},
+  {section:"Ratios", front:"Debt-to-Equity Ratio — formula and what it tells you?", back:"Total Liabilities ÷ Total Equity. How leveraged the business is. A ratio climbing fast year-over-year signals growing risk."},
+  {section:"Ratios", front:"Operating Cash Flow vs. Net Income — what are you comparing and why?", back:"Compare accrual-based Net Income (P&L) to actual Cash Flow from Operations. Positive net income but negative/shrinking cash flow often means profit isn't turning into cash — check A/R or inventory."},
+  {section:"Terms", front:"Accrual vs. Cash Basis — what's the difference?", back:"Accrual records revenue/expenses when earned/incurred. Cash basis records only when cash actually moves. Most small businesses report accrual P&Ls but think in cash — a common source of confusion."},
+  {section:"Terms", front:"EBITDA — what does it stand for and what's it for?", back:"Earnings Before Interest, Taxes, Depreciation, and Amortization. A proxy for operating cash-generating ability, useful for comparing businesses with different debt loads or capital structures."},
+  {section:"Terms", front:"Working Capital — formula and what it tells you?", back:"Current Assets − Current Liabilities. The cushion available to run day-to-day operations. Negative working capital is a liquidity warning."},
+  {section:"Terms", front:"COGS — what belongs here vs. operating expenses?", back:"COGS = direct costs of producing/delivering what's sold (materials, direct labor, delivery subcontractors). Operating expenses = everything else (rent, marketing, admin). Misclassifying between the two distorts gross margin."},
+  {section:"Terms", front:"Burn Rate — what is it, and when does it matter most?", back:"The rate at which a business spends cash, usually monthly. Matters most for businesses not yet consistently profitable — tells you how many months of runway remain."},
+  {section:"Red Flags", front:"Pattern: Net income positive, cash declining. Likely cause?", back:"Check A/R aging (sales not yet collected) and inventory (cash tied up in stock). Also check for large one-time capital purchases or debt principal payments."},
+  {section:"Red Flags", front:"Pattern: One expense category growing faster than revenue for 3+ months. Likely cause?", back:"Overhead creep or a vendor/pricing problem. Pull the line-item detail and ask the owner what changed."},
+  {section:"Red Flags", front:"Pattern: Gross margin drifting down over several periods. Likely cause?", back:"Costs rising faster than pricing keeps up, or a sales-mix shift toward lower-margin items. Rarely self-corrects without a pricing or sourcing conversation."},
+  {section:"Red Flags", front:"Pattern: Revenue flat/growing but DSO climbing. Likely cause?", back:"Collections process loosening — lenient terms, inconsistent invoicing, or a few large customers paying slower. Quietly starves cash while the P&L looks fine."},
+  {section:"Red Flags", front:"Pattern: Current ratio drops below 1.0. What's the urgency?", back:"The business can't cover near-term obligations with near-term assets. This is a near-term solvency flag — it needs attention faster than a margin problem."},
+  {section:"Red Flags", front:"Pattern: Owner draws/compensation inconsistent or missing. Why does this matter?", back:"If the owner isn't paid a market-rate salary, the P&L understates the true cost of running the business — profitability looks better than it would with a real replacement-cost labor line."},
+  {section:"Red Flags", front:"Pattern: Large 'uncategorized' or 'ask my accountant' expense buckets. What does this tell you before running any ratio?", back:"The books aren't clean enough yet to trust any ratio built from them. This is a bookkeeping-cleanup conversation, not a CFO-strategy conversation."}
+];
+
+let order = deck.map((_, i) => i);
+let pos = 0;
+let activeSection = "All";
+
+const cardEl = document.getElementById('card');
+const frontTag = document.getElementById('frontTag');
+const frontText = document.getElementById('frontText');
+const backText = document.getElementById('backText');
+const cardNum = document.getElementById('cardNum');
+const cardTotal = document.getElementById('cardTotal');
+const filtersEl = document.getElementById('filters');
+const progressEl = document.getElementById('progress');
+
+const sections = ["All", ...Array.from(new Set(deck.map(c => c.section)))];
+
+function buildFilters() {
+  filtersEl.innerHTML = '';
+  sections.forEach(s => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn' + (s === activeSection ? ' active' : '');
+    btn.textContent = s;
+    btn.onclick = () => {
+      activeSection = s;
+      order = deck.map((_, i) => i).filter(i => s === "All" || deck[i].section === s);
+      pos = 0;
+      buildFilters();
+      render();
+    };
+    filtersEl.appendChild(btn);
+  });
+}
+
+function render() {
+  cardEl.classList.remove('flipped');
+  const idx = order[pos];
+  const c = deck[idx];
+  frontTag.textContent = c.section;
+  frontText.textContent = c.front;
+  backText.textContent = c.back;
+  cardNum.textContent = pos + 1;
+  cardTotal.textContent = order.length;
+  progressEl.textContent = activeSection === "All" ? "Full deck" : activeSection + " section";
+  document.getElementById('prevBtn').disabled = pos === 0;
+  document.getElementById('nextBtn').disabled = pos === order.length - 1;
+}
+
+cardEl.addEventListener('click', () => {
+  cardEl.classList.toggle('flipped');
+});
+
+document.getElementById('nextBtn').onclick = () => {
+  if (pos < order.length - 1) { pos++; render(); }
+};
+document.getElementById('prevBtn').onclick = () => {
+  if (pos > 0) { pos--; render(); }
+};
+document.getElementById('shuffleBtn').onclick = () => {
+  for (let i = order.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  pos = 0;
+  render();
+};
+
+buildFilters();
+render();
+</script>
+</body>
+</html>
