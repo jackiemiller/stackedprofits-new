@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CFO Fluency Flashcards — Deck 3</title>
+<style>
+  :root {
+    --bg: #f5f3ef;
+    --card-bg: #ffffff;
+    --ink: #1e1e1e;
+    --muted: #6b6b6b;
+    --accent: #5a3e1f;
+    --accent-light: #f0e8dd;
+    --border: #d9d4cb;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px 60px;
+    min-height: 100vh;
+  }
+  h1 { font-size: 1.3rem; margin: 4px 0 2px; text-align: center; }
+  .sub { color: var(--muted); font-size: 0.85rem; margin-bottom: 18px; text-align: center; }
+  .controls { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; justify-content: center; }
+  .filter-btn {
+    border: 1px solid var(--border); background: var(--card-bg); color: var(--ink);
+    padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; cursor: pointer;
+  }
+  .filter-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+  .progress { font-size: 0.85rem; color: var(--muted); margin-bottom: 14px; }
+  .card-wrap { width: 100%; max-width: 440px; perspective: 1200px; }
+  .card {
+    position: relative; width: 100%; min-height: 300px; cursor: pointer;
+    transform-style: preserve-3d; transition: transform 0.5s;
+  }
+  .card.flipped { transform: rotateY(180deg); }
+  .face {
+    position: absolute; width: 100%; min-height: 300px; backface-visibility: hidden;
+    border-radius: 16px; padding: 28px 24px; display: flex; flex-direction: column;
+    justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.08); border: 1px solid var(--border);
+  }
+  .front { background: var(--card-bg); }
+  .back { background: var(--accent-light); transform: rotateY(180deg); }
+  .tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); font-weight: 600; margin-bottom: 10px; }
+  .prompt { font-size: 1.05rem; line-height: 1.45; font-weight: 500; }
+  .answer { font-size: 0.98rem; line-height: 1.5; }
+  .hint { position: absolute; bottom: 14px; right: 18px; font-size: 0.7rem; color: var(--muted); }
+  .nav { display: flex; gap: 14px; margin-top: 22px; }
+  .nav button { border: none; background: var(--accent); color: white; padding: 10px 22px; border-radius: 10px; font-size: 0.95rem; cursor: pointer; }
+  .nav button:disabled { background: #c9beb0; cursor: default; }
+  .nav button.secondary { background: var(--card-bg); color: var(--ink); border: 1px solid var(--border); }
+  .tap-hint { margin-top: 10px; font-size: 0.78rem; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<h1>CFO Fluency Flashcards — Deck 3</h1>
+<div class="sub">Customer acquisition economics — tap the card to reveal the answer</div>
+
+<div class="controls" id="filters"></div>
+<div class="progress" id="progress"></div>
+
+<div class="card-wrap">
+  <div class="card" id="card">
+    <div class="face front">
+      <div class="tag" id="frontTag"></div>
+      <div class="prompt" id="frontText"></div>
+      <div class="hint">tap to flip</div>
+    </div>
+    <div class="face back">
+      <div class="tag" id="backTag">Answer</div>
+      <div class="answer" id="backText"></div>
+      <div class="hint">tap to flip back</div>
+    </div>
+  </div>
+</div>
+
+<div class="tap-hint">Card <span id="cardNum"></span> of <span id="cardTotal"></span></div>
+
+<div class="nav">
+  <button class="secondary" id="prevBtn">&larr; Prev</button>
+  <button id="shuffleBtn">Shuffle</button>
+  <button id="nextBtn">Next &rarr;</button>
+</div>
+
+<script>
+const deck = [
+  {section:"Core Terms", front:"CAC (Customer Acquisition Cost) — formula and what it tells you?", back:"Total sales & marketing spend ÷ number of new customers acquired in that period. The true cost of winning one new customer — not just the ad spend, but the whole acquisition engine."},
+  {section:"Core Terms", front:"LTV (Lifetime Value) — formula and what it tells you?", back:"Average revenue per customer × average customer lifespan (often margin-adjusted: use gross profit per customer, not revenue, for the cleanest version). What one customer is actually worth to the business over the whole relationship, not just the first sale."},
+  {section:"Core Terms", front:"LTV:CAC Ratio — formula and what it tells you?", back:"LTV ÷ CAC. The core 'is this spend worth it' check. Below 1:1 = losing money on every new customer. 3:1 or higher is the standard healthy benchmark — a customer is worth at least 3x what it cost to acquire them."},
+  {section:"Core Terms", front:"CAC Payback Period — formula and what it tells you?", back:"CAC ÷ average monthly gross profit per customer. How many months of that customer's margin it takes just to recoup what was spent acquiring them. Under 12 months is considered healthy for most service businesses."},
+  {section:"Core Terms", front:"Churn Rate — formula and what it tells you?", back:"Customers lost in a period ÷ customers at the start of that period. The rate clients are walking away. High churn forces constant re-acquisition spending just to stay flat — it quietly inflates effective CAC."},
+  {section:"Core Terms", front:"Retention Rate — how does it relate to churn?", back:"1 − Churn Rate. The flip side of the same number. A business can look like it's growing (new sales) while retention erosion is masking the fact that the bucket has a leak."},
+  {section:"Diagnostic Use", front:"Marketing spend as a % of revenue — how do you judge whether it's too high?", back:"Compare it to the business's maturity. A brand-new company fighting for its first customers can run marketing at 15%+ of revenue. An established company with a steady client base should typically be down near 2-5%. High spend paired with a mature revenue base is a red flag, not a growth signal."},
+  {section:"Diagnostic Use", front:"Cost Per Lead vs. CAC — what's the difference, and why does mixing them up cause bad decisions?", back:"Cost Per Lead only counts getting someone's attention/contact info. CAC counts the full cost through an actual paying customer, including the leads that never converted. A channel can look cheap on cost-per-lead and be expensive on real CAC if its conversion rate is poor."},
+  {section:"Diagnostic Use", front:"High marketing spend + lean labor cost + flat/break-even profit — what question does this combination raise?", back:"Whether the business is spending at new-customer-acquisition rates while quietly losing existing customers just as fast (churn), spending on a channel that isn't converting (dead lead-gen), or using the marketing-driven lead flow to paper over a staffing/retention gap on the delivery side. One number alone can't tell you which — you need churn data, cost-per-acquired-customer by channel, or subcontractor-spend trend to isolate it."},
+  {section:"Diagnostic Use", front:"Why ask for churn/retention data before recommending a marketing cut?", back:"If churn is the real problem, cutting marketing spend without fixing retention just shrinks the business faster — new customers were covering for the ones leaking out the back. The CFO move is diagnosing the cause before cutting the symptom."}
+];
+
+let order = deck.map((_, i) => i);
+let pos = 0;
+let activeSection = "All";
+
+const cardEl = document.getElementById('card');
+const frontTag = document.getElementById('frontTag');
+const frontText = document.getElementById('frontText');
+const backText = document.getElementById('backText');
+const cardNum = document.getElementById('cardNum');
+const cardTotal = document.getElementById('cardTotal');
+const filtersEl = document.getElementById('filters');
+const progressEl = document.getElementById('progress');
+
+const sections = ["All", ...Array.from(new Set(deck.map(c => c.section)))];
+
+function buildFilters() {
+  filtersEl.innerHTML = '';
+  sections.forEach(s => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn' + (s === activeSection ? ' active' : '');
+    btn.textContent = s;
+    btn.onclick = () => {
+      activeSection = s;
+      order = deck.map((_, i) => i).filter(i => s === "All" || deck[i].section === s);
+      pos = 0;
+      buildFilters();
+      render();
+    };
+    filtersEl.appendChild(btn);
+  });
+}
+
+function render() {
+  cardEl.classList.remove('flipped');
+  const idx = order[pos];
+  const c = deck[idx];
+  frontTag.textContent = c.section;
+  frontText.textContent = c.front;
+  backText.textContent = c.back;
+  cardNum.textContent = pos + 1;
+  cardTotal.textContent = order.length;
+  progressEl.textContent = activeSection === "All" ? "Full deck" : activeSection + " section";
+  document.getElementById('prevBtn').disabled = pos === 0;
+  document.getElementById('nextBtn').disabled = pos === order.length - 1;
+}
+
+cardEl.addEventListener('click', () => {
+  cardEl.classList.toggle('flipped');
+});
+
+document.getElementById('nextBtn').onclick = () => { if (pos < order.length - 1) { pos++; render(); } };
+document.getElementById('prevBtn').onclick = () => { if (pos > 0) { pos--; render(); } };
+document.getElementById('shuffleBtn').onclick = () => {
+  for (let i = order.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  pos = 0;
+  render();
+};
+
+buildFilters();
+render();
+</script>
+</body>
+</html>
