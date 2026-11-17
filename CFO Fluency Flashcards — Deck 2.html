@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CFO Fluency Flashcards — Deck 2</title>
+<style>
+  :root {
+    --bg: #f5f3ef;
+    --card-bg: #ffffff;
+    --ink: #1e1e1e;
+    --muted: #6b6b6b;
+    --accent: #2e4f53;
+    --accent-light: #e6eef0;
+    --border: #d9d4cb;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px 60px;
+    min-height: 100vh;
+  }
+  h1 { font-size: 1.3rem; margin: 4px 0 2px; text-align: center; }
+  .sub { color: var(--muted); font-size: 0.85rem; margin-bottom: 18px; text-align: center; }
+  .controls { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; justify-content: center; }
+  .filter-btn {
+    border: 1px solid var(--border); background: var(--card-bg); color: var(--ink);
+    padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; cursor: pointer;
+  }
+  .filter-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+  .progress { font-size: 0.85rem; color: var(--muted); margin-bottom: 14px; }
+  .card-wrap { width: 100%; max-width: 440px; perspective: 1200px; }
+  .card {
+    position: relative; width: 100%; min-height: 300px; cursor: pointer;
+    transform-style: preserve-3d; transition: transform 0.5s;
+  }
+  .card.flipped { transform: rotateY(180deg); }
+  .face {
+    position: absolute; width: 100%; min-height: 300px; backface-visibility: hidden;
+    border-radius: 16px; padding: 28px 24px; display: flex; flex-direction: column;
+    justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.08); border: 1px solid var(--border);
+  }
+  .front { background: var(--card-bg); }
+  .back { background: var(--accent-light); transform: rotateY(180deg); }
+  .tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); font-weight: 600; margin-bottom: 10px; }
+  .prompt { font-size: 1.05rem; line-height: 1.45; font-weight: 500; }
+  .answer { font-size: 0.98rem; line-height: 1.5; }
+  .hint { position: absolute; bottom: 14px; right: 18px; font-size: 0.7rem; color: var(--muted); }
+  .nav { display: flex; gap: 14px; margin-top: 22px; }
+  .nav button { border: none; background: var(--accent); color: white; padding: 10px 22px; border-radius: 10px; font-size: 0.95rem; cursor: pointer; }
+  .nav button:disabled { background: #b7c0c2; cursor: default; }
+  .nav button.secondary { background: var(--card-bg); color: var(--ink); border: 1px solid var(--border); }
+  .tap-hint { margin-top: 10px; font-size: 0.78rem; color: var(--muted); }
+</style>
+</head>
+<body>
+
+<h1>CFO Fluency Flashcards — Deck 2</h1>
+<div class="sub">Balance sheet &amp; cash flow mechanics — tap the card to reveal the answer</div>
+
+<div class="controls" id="filters"></div>
+<div class="progress" id="progress"></div>
+
+<div class="card-wrap">
+  <div class="card" id="card">
+    <div class="face front">
+      <div class="tag" id="frontTag"></div>
+      <div class="prompt" id="frontText"></div>
+      <div class="hint">tap to flip</div>
+    </div>
+    <div class="face back">
+      <div class="tag" id="backTag">Answer</div>
+      <div class="answer" id="backText"></div>
+      <div class="hint">tap to flip back</div>
+    </div>
+  </div>
+</div>
+
+<div class="tap-hint">Card <span id="cardNum"></span> of <span id="cardTotal"></span></div>
+
+<div class="nav">
+  <button class="secondary" id="prevBtn">&larr; Prev</button>
+  <button id="shuffleBtn">Shuffle</button>
+  <button id="nextBtn">Next &rarr;</button>
+</div>
+
+<script>
+const deck = [
+  {section:"Connections", front:"The Balance Sheet Equation — what is it, and why must it balance?", back:"Assets = Liabilities + Equity. Everything owned was financed either by debt or by owner money/retained profit. If it doesn't balance, something was recorded wrong."},
+  {section:"Connections", front:"How does the P&L connect to the balance sheet?", back:"Net income flows into Retained Earnings on the balance sheet (minus any owner draws/dividends). This is the main bridge between the two statements."},
+  {section:"Connections", front:"What does each of the three statements actually answer?", back:"P&L: did the business make money this period? Balance Sheet: what does it own and owe right now? Cash Flow Statement: where did the actual cash come from and go?"},
+  {section:"Connections", front:"Indirect method cash flow statement — what does it start with, and why?", back:"Starts with Net Income, then adjusts for non-cash items (like depreciation) and working-capital changes (A/R, A/P, inventory) to arrive at actual cash generated. This is why net income and cash flow often diverge."},
+  {section:"CapEx & Non-Cash", front:"Depreciation — what is it, and why is it a 'non-cash' expense?", back:"Spreads a long-term asset's cost over its useful life. Reduces net income on paper, but no cash actually leaves when it's recorded — that's why it's added back on the cash flow statement."},
+  {section:"CapEx & Non-Cash", front:"Amortization vs. Depreciation — what's the difference?", back:"Same concept, different asset type. Depreciation = tangible assets (equipment, vehicles). Amortization = intangible assets (patents, loan costs) or paying down loan principal over time."},
+  {section:"CapEx & Non-Cash", front:"CapEx vs. OpEx — what's the distinction, and why does it matter?", back:"CapEx (buying equipment/a truck) becomes a balance-sheet asset and depreciates over time — it doesn't hit the P&L directly. OpEx hits the P&L immediately. A business can look unprofitable in a big CapEx year while actually being healthy."},
+  {section:"CapEx & Non-Cash", front:"Free Cash Flow — formula and what it tells you?", back:"Operating Cash Flow − Capital Expenditures. Cash left over after running AND reinvesting in the business — closer to 'real' discretionary cash than net income."},
+  {section:"Working Capital", front:"Accounts Receivable increases — cash flow impact?", back:"Cash flow goes DOWN. More sales were made on credit and not yet collected — the 'profit' exists on paper but the cash hasn't arrived."},
+  {section:"Working Capital", front:"Accounts Payable increases — cash flow impact?", back:"Cash flow goes UP. The business is holding its own cash longer by delaying vendor payments — real but temporary, since it has to be paid eventually."},
+  {section:"Working Capital", front:"Inventory increases — cash flow impact?", back:"Cash flow goes DOWN. Cash was spent on inventory that hasn't sold yet — it's sitting on the shelf instead of in the bank."},
+  {section:"Working Capital", front:"Prepaid Expenses — what are they, and how do they move?", back:"Payments made in advance (prepaid insurance, prepaid rent). They sit on the balance sheet as an asset and get expensed gradually on the P&L as the benefit is used up."},
+  {section:"Working Capital", front:"Accrued Liabilities — what are they?", back:"Expenses incurred but not yet paid in cash (earned payroll not yet paid out, a bill received but unpaid). They show as a liability on the balance sheet and an expense on the P&L before cash goes out."},
+  {section:"Equity & Loans", front:"Owner Draws vs. Retained Earnings (LLC/S-corp) — how do draws affect the balance sheet?", back:"Draws reduce owner's equity directly — they're not a P&L expense. A business can be profitable on paper while equity shrinks if the owner draws out more than the business earns."},
+  {section:"Equity & Loans", front:"Taking out a loan — effect on the three statements?", back:"P&L: no effect. Balance Sheet: cash up, loan payable up — balances. Cash Flow Statement: cash inflow under financing activities."},
+  {section:"Equity & Loans", front:"Loan principal payment — effect on the three statements?", back:"P&L: no effect (only interest is an expense, not principal). Balance Sheet: cash down, loan payable down. Cash Flow Statement: cash outflow under financing. Classic case of healthy net income masking a real cash drain."}
+];
+
+let order = deck.map((_, i) => i);
+let pos = 0;
+let activeSection = "All";
+
+const cardEl = document.getElementById('card');
+const frontTag = document.getElementById('frontTag');
+const frontText = document.getElementById('frontText');
+const backText = document.getElementById('backText');
+const cardNum = document.getElementById('cardNum');
+const cardTotal = document.getElementById('cardTotal');
+const filtersEl = document.getElementById('filters');
+const progressEl = document.getElementById('progress');
+
+const sections = ["All", ...Array.from(new Set(deck.map(c => c.section)))];
+
+function buildFilters() {
+  filtersEl.innerHTML = '';
+  sections.forEach(s => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn' + (s === activeSection ? ' active' : '');
+    btn.textContent = s;
+    btn.onclick = () => {
+      activeSection = s;
+      order = deck.map((_, i) => i).filter(i => s === "All" || deck[i].section === s);
+      pos = 0;
+      buildFilters();
+      render();
+    };
+    filtersEl.appendChild(btn);
+  });
+}
+
+function render() {
+  cardEl.classList.remove('flipped');
+  const idx = order[pos];
+  const c = deck[idx];
+  frontTag.textContent = c.section;
+  frontText.textContent = c.front;
+  backText.textContent = c.back;
+  cardNum.textContent = pos + 1;
+  cardTotal.textContent = order.length;
+  progressEl.textContent = activeSection === "All" ? "Full deck" : activeSection + " section";
+  document.getElementById('prevBtn').disabled = pos === 0;
+  document.getElementById('nextBtn').disabled = pos === order.length - 1;
+}
+
+cardEl.addEventListener('click', () => {
+  cardEl.classList.toggle('flipped');
+});
+
+document.getElementById('nextBtn').onclick = () => { if (pos < order.length - 1) { pos++; render(); } };
+document.getElementById('prevBtn').onclick = () => { if (pos > 0) { pos--; render(); } };
+document.getElementById('shuffleBtn').onclick = () => {
+  for (let i = order.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  pos = 0;
+  render();
+};
+
+buildFilters();
+render();
+</script>
+</body>
+</html>
