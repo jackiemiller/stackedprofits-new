@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Break-Even Calculator for Service Businesses</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pine:#10302c;
+    --pine-soft:#2c4a44;
+    --paper:#eef2f0;
+    --surface:#ffffff;
+    --line:#d6dedb;
+    --muted:#5f716c;
+    --brass:#a9761b;
+    --brass-ink:#7d560f;
+    --brass-wash:#f3e8d0;
+    --flag-ok:#2f6f4f;
+    --flag-warn:#9a6a12;
+    --flag-bad:#b13b2f;
+    --text:#132b28;
+    --shadow:0 1px 2px rgba(16,48,44,.06), 0 8px 24px rgba(16,48,44,.07);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --pine:#dfeae6;--pine-soft:#b7c8c2;--paper:#0c1a18;--surface:#122522;
+      --line:#25403a;--muted:#8ba39c;--brass:#e0a83e;--brass-ink:#f0c877;
+      --brass-wash:#2a2415;--flag-ok:#6cc79a;--flag-warn:#e0b45a;--flag-bad:#e2756a;--text:#e7efec;
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 28px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --pine:#dfeae6;--pine-soft:#b7c8c2;--paper:#0c1a18;--surface:#122522;
+    --line:#25403a;--muted:#8ba39c;--brass:#e0a83e;--brass-ink:#f0c877;
+    --brass-wash:#2a2415;--flag-ok:#6cc79a;--flag-warn:#e0b45a;--flag-bad:#e2756a;--text:#e7efec;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 28px rgba(0,0,0,.35);
+  }
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--paper);color:var(--text);
+    font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    line-height:1.5;padding-bottom:84px;
+  }
+  .wrap{max-width:1040px;margin:0 auto;padding:28px 20px 48px}
+
+  header.masthead{margin-bottom:22px}
+  .kicker{font-family:"Space Grotesk";font-weight:600;font-size:.82rem;letter-spacing:.02em;color:var(--brass-ink);margin:0 0 6px}
+  h1{font-family:"Space Grotesk";font-weight:700;font-size:clamp(1.5rem,4.5vw,2.15rem);line-height:1.08;margin:0 0 8px;color:var(--pine);letter-spacing:-.01em}
+  .lede{margin:0;max-width:60ch;color:var(--muted);font-size:1rem}
+
+  .grid{display:grid;grid-template-columns:1fr;gap:20px}
+  @media (min-width:900px){
+    .grid{grid-template-columns:1.15fr .85fr;gap:28px;align-items:start}
+    .resultcol{position:sticky;top:20px}
+  }
+
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+  fieldset.group{border:none;margin:0 0 16px;padding:18px 18px 6px}
+  fieldset.group:last-child{margin-bottom:0}
+  legend{font-family:"Space Grotesk";font-weight:600;font-size:1.02rem;color:var(--pine);padding:0;margin-bottom:4px}
+  .group-note{color:var(--muted);font-size:.86rem;margin:0 0 12px}
+
+  .field{margin-bottom:14px}
+  .field:last-child{margin-bottom:6px}
+  label{display:block;font-weight:500;font-size:.92rem;margin-bottom:6px;color:var(--text)}
+  .hint{display:block;font-weight:400;color:var(--muted);font-size:.8rem;margin-top:3px}
+
+  .control{position:relative;display:flex;align-items:center}
+  .control .prefix{position:absolute;left:13px;color:var(--muted);font-size:.95rem;pointer-events:none}
+  .control .suffix{position:absolute;right:13px;color:var(--muted);font-size:.85rem;pointer-events:none}
+  input[type=number]{
+    width:100%;font:inherit;font-size:1rem;color:var(--text);
+    background:var(--paper);border:1px solid var(--line);border-radius:9px;
+    padding:11px 13px;appearance:none;-moz-appearance:textfield;
+  }
+  input.has-prefix{padding-left:26px}
+  input.has-suffix{padding-right:52px}
+  input:focus-visible{outline:2px solid var(--brass);outline-offset:1px;border-color:var(--brass)}
+  input[type=number]::-webkit-outer-spin-button,input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+
+  /* result */
+  .result{padding:22px 20px 20px}
+  .result .heading{font-family:"Space Grotesk";font-weight:600;color:var(--muted);font-size:.9rem;margin:0 0 4px}
+  .bid{font-family:"Space Grotesk";font-weight:700;color:var(--pine);font-size:clamp(2.4rem,8vw,3.2rem);line-height:1;letter-spacing:-.02em;margin:2px 0 2px}
+  .bid .per{font-size:1rem;font-weight:500;color:var(--muted);letter-spacing:0}
+  .bench{font-size:.86rem;margin:10px 0 0;padding:8px 11px;border-radius:8px;background:var(--brass-wash);color:var(--brass-ink);border:1px solid color-mix(in srgb,var(--brass) 30%,transparent)}
+  .bench.ok{color:var(--flag-ok);background:color-mix(in srgb,var(--flag-ok) 12%,transparent);border-color:color-mix(in srgb,var(--flag-ok) 30%,transparent)}
+  .bench.bad{color:var(--flag-bad);background:color-mix(in srgb,var(--flag-bad) 12%,transparent);border-color:color-mix(in srgb,var(--flag-bad) 30%,transparent)}
+  .bench b{font-weight:600}
+
+  .mini{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;margin:16px 0 0;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .mini div{padding:11px 12px;background:var(--surface)}
+  .mini .k{font-size:.74rem;color:var(--muted);margin-bottom:2px}
+  .mini .v{font-family:"Space Grotesk";font-weight:600;font-size:1.02rem;color:var(--text)}
+
+  .breakdown{margin:18px 0 0;border-top:1px solid var(--line);padding-top:14px}
+  .breakdown .btitle{font-family:"Space Grotesk";font-weight:600;font-size:.9rem;color:var(--pine);margin:0 0 8px}
+  .line{display:flex;justify-content:space-between;gap:12px;padding:5px 0;font-size:.92rem;border-bottom:1px dashed var(--line)}
+  .line:last-child{border-bottom:none}
+  .line .lbl{color:var(--muted)}
+  .line .amt{font-family:"Space Grotesk";font-weight:500;color:var(--text);white-space:nowrap}
+  .line.total{margin-top:4px;padding-top:9px;border-top:2px solid var(--pine);border-bottom:none}
+  .line.total .lbl{color:var(--pine);font-weight:600}
+  .line.total .amt{color:var(--brass-ink);font-weight:700;font-size:1.05rem}
+
+  details.method{margin-top:20px;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+  details.method summary{cursor:pointer;list-style:none;padding:16px 18px;font-family:"Space Grotesk";font-weight:600;color:var(--pine);display:flex;justify-content:space-between;align-items:center}
+  details.method summary::-webkit-details-marker{display:none}
+  details.method summary .chev{color:var(--muted);transition:transform .2s}
+  details.method[open] summary .chev{transform:rotate(180deg)}
+  .method-body{padding:0 18px 18px;color:var(--text);font-size:.93rem}
+  .method-body p{margin:0 0 10px}
+  .method-body ol{margin:0 0 10px;padding-left:20px}
+  .method-body li{margin-bottom:6px}
+  .method-body code{font-family:"Space Grotesk";background:var(--paper);padding:1px 6px;border-radius:5px;font-size:.86em;color:var(--brass-ink)}
+  .method-body strong{color:var(--pine)}
+
+  footer.brand{margin-top:26px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem}
+
+  .stickybar{position:fixed;left:0;right:0;bottom:0;background:var(--pine);color:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 18px;box-shadow:0 -6px 20px rgba(16,48,44,.18);z-index:20}
+  .stickybar .sl{font-size:.78rem;opacity:.8;font-weight:500}
+  .stickybar .sv{font-family:"Space Grotesk";font-weight:700;font-size:1.3rem}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .stickybar{background:#0a1513;color:var(--text)}}
+  :root[data-theme="dark"] .stickybar{background:#0a1513;color:var(--text)}
+  @media (min-width:900px){.stickybar{display:none} body{padding-bottom:0}}
+
+  @media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <p class="kicker">For cleaning &amp; service business owners who've never run this number</p>
+    <h1>Break-Even Calculator</h1>
+    <p class="lede">Find out exactly how many jobs you need to book each month before you make a dollar of profit. Enter your numbers below — the answer updates as you type.</p>
+  </header>
+
+  <div class="grid">
+    <!-- INPUTS -->
+    <form class="panel" id="form" autocomplete="off">
+      <fieldset class="group">
+        <legend>Your fixed costs</legend>
+        <p class="group-note">Costs that stay the same whether you clean 5 jobs or 50 this month.</p>
+        <div class="field">
+          <label for="fixed">Total fixed monthly costs</label>
+          <div class="control">
+            <span class="prefix">$</span>
+            <input type="number" id="fixed" class="has-prefix" min="0" step="50" value="4500" inputmode="numeric">
+          </div>
+          <span class="hint">Rent, insurance, software, admin salaries, loan payments — anything you pay whether or not you work.</span>
+        </div>
+      </fieldset>
+
+      <fieldset class="group">
+        <legend>Your pricing</legend>
+        <p class="group-note">What you actually charge for one typical job.</p>
+        <div class="field">
+          <label for="price">Average price per job</label>
+          <div class="control">
+            <span class="prefix">$</span>
+            <input type="number" id="price" class="has-prefix" min="0" step="5" value="180" inputmode="decimal">
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="group">
+        <legend>Your job costs</legend>
+        <p class="group-note">What it costs you to actually deliver one job — not your overhead, just this job.</p>
+        <div class="field">
+          <label for="varcost">Variable cost per job</label>
+          <div class="control">
+            <span class="prefix">$</span>
+            <input type="number" id="varcost" class="has-prefix" min="0" step="5" value="70" inputmode="decimal">
+          </div>
+          <span class="hint">Cleaning supplies, the labor you pay for that job, gas/mileage — costs that scale with how many jobs you do.</span>
+        </div>
+      </fieldset>
+    </form>
+
+    <!-- RESULT -->
+    <div class="resultcol">
+      <div class="panel result">
+        <p class="heading">Jobs needed per month to break even</p>
+        <div class="bid"><span id="bejobs">0</span> <span class="per">jobs / month</span></div>
+        <p class="bench" id="bench">—</p>
+
+        <div class="mini">
+          <div><div class="k">Per week</div><div class="v" id="beweek">0</div></div>
+          <div><div class="k">Margin / job</div><div class="v" id="margin">$0</div></div>
+          <div><div class="k">Break-even revenue</div><div class="v" id="berevenue">$0</div></div>
+        </div>
+
+        <div class="breakdown">
+          <p class="btitle">How this number is built</p>
+          <div class="line"><span class="lbl">Price per job</span><span class="amt" id="lprice">$0</span></div>
+          <div class="line"><span class="lbl">− Variable cost per job</span><span class="amt" id="lvar">$0</span></div>
+          <div class="line"><span class="lbl">= Contribution margin per job</span><span class="amt" id="lmargin">$0</span></div>
+          <div class="line"><span class="lbl">÷ into fixed costs</span><span class="amt" id="lfixed">$0</span></div>
+          <div class="line total"><span class="lbl">Break-even jobs / month</span><span class="amt" id="ltotal">0</span></div>
+        </div>
+      </div>
+
+      <details class="method">
+        <summary>How this number is built <span class="chev">▾</span></summary>
+        <div class="method-body">
+          <p>Break-even isn't about how busy you are — it's about how many jobs it takes before a single dollar of profit shows up. Every business works the same way:</p>
+          <ol>
+            <li><strong>Find your margin per job.</strong> Price per job minus the variable cost of doing that one job. <code>$180 − $70 = $110</code></li>
+            <li><strong>Divide your fixed costs by that margin.</strong> That tells you how many jobs it takes to cover rent, insurance, admin — everything you pay whether you work or not. <code>$4,500 ÷ $110 ≈ 41 jobs</code></li>
+            <li><strong>Everything past that number is profit.</strong> Job 42 onward isn't paying bills anymore — it's paying you.</li>
+          </ol>
+          <p>If your margin per job is low or negative, raising prices or cutting job costs moves your break-even point fast — often faster than chasing more clients would.</p>
+          <p>These are planning estimates based on the numbers you enter. Review your actual books before making pricing or staffing decisions.</p>
+        </div>
+      </details>
+
+      <section class="panel" style="margin-top:20px;padding:22px 20px">
+        <h3 style="font-family:'Space Grotesk';font-weight:700;color:var(--pine);margin:0 0 6px;font-size:1.12rem">Get the Financial Health Checklist</h3>
+        <p style="margin:0 0 14px;color:var(--muted);font-size:.92rem">Break-even is one number. Here are the other nine that tell you if your business is actually healthy. Drop your email and grab the free one-page checklist.</p>
+        <div id="cap-form">
+          <input id="cap-email" type="email" autocomplete="email" placeholder="you@yourcompany.com" style="width:100%;font-size:1rem;padding:12px 13px;border-radius:9px;border:1px solid var(--line);background:var(--paper);color:var(--text);margin-bottom:10px">
+          <button id="cap-btn" type="button" style="width:100%;font-family:'Space Grotesk';font-weight:700;font-size:1rem;color:#0b1a17;background:var(--brass);border:none;border-radius:9px;padding:12px;cursor:pointer">Send me the checklist &rarr;</button>
+          <div id="cap-err" style="color:#e2574a;font-size:.85rem;margin-top:8px;display:none"></div>
+        </div>
+        <div id="cap-done" style="display:none;text-align:center;padding:4px 0">
+          <p style="color:var(--flag-ok);font-weight:600;margin:0 0 10px">Nice &mdash; here's your checklist:</p>
+          <a href="/financial-health-checklist.docx" download style="display:inline-block;font-family:'Space Grotesk';font-weight:700;color:#0b1a17;background:var(--brass);padding:11px 22px;border-radius:9px;text-decoration:none">Download the checklist</a>
+        </div>
+      </section>
+      <footer class="brand" id="brand"><div style="display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center">
+        <img src="stacked-profits-logo.svg" alt="Stacked Profits" style="width:150px;max-width:60%;height:auto;margin:0 auto">
+        <div style="font-size:.95rem;color:var(--text)">Want help acting on this number?</div>
+        <a href="tel:+19562979360" style="font-family:'Space Grotesk';font-weight:700;font-size:1.15rem;color:var(--brass-ink);text-decoration:none;letter-spacing:.01em">Call (956) 297-9360</a>
+        <div style="font-size:.8rem;color:var(--muted)">Estimates for planning only. Review your actual books before acting on this number.</div>
+      </div></footer>
+    </div>
+  </div>
+</div>
+
+<div class="stickybar" aria-hidden="true">
+  <span class="sl">Break-even</span>
+  <span class="sv" id="bejobs-sticky">0 jobs/mo</span>
+</div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+
+  var els={fixed:$('fixed'),price:$('price'),varcost:$('varcost')};
+
+  function num(el,min){var v=parseFloat(el.value);if(isNaN(v))v=0;if(min!=null&&v<min)v=min;return v;}
+  function money(n){return '$'+Math.round(n).toLocaleString('en-US');}
+
+  function calc(){
+    var fixed=num(els.fixed,0),
+        price=num(els.price,0),
+        varcost=num(els.varcost,0);
+
+    var margin=price-varcost;
+    var bench=$('bench');
+
+    $('lprice').textContent=money(price);
+    $('lvar').textContent=money(varcost);
+    $('lmargin').textContent=money(margin);
+    $('lfixed').textContent=money(fixed);
+    $('margin').textContent=money(margin);
+
+    if(price<=0){
+      bench.className='bench';
+      bench.innerHTML='Enter a price per job to see your break-even point.';
+      $('bejobs').textContent='0';$('bejobs-sticky').textContent='0 jobs/mo';
+      $('beweek').textContent='0';$('berevenue').textContent='$0';$('ltotal').textContent='0';
+      return;
+    }
+    if(margin<=0){
+      bench.className='bench bad';
+      bench.innerHTML='<b>You\\'re losing money on every job.</b> Your variable cost ('+money(varcost)+') is at or above your price ('+money(price)+') before fixed costs are even covered. Raise your price or cut job costs before anything else.';
+      $('bejobs').textContent='∞';$('bejobs-sticky').textContent='— jobs/mo';
+      $('beweek').textContent='—';$('berevenue').textContent='—';$('ltotal').textContent='∞';
+      return;
+    }
+
+    var beJobs=fixed/margin;
+    var beJobsRound=Math.ceil(beJobs);
+    var beWeek=beJobs/4.33;
+    var beRevenue=beJobsRound*price;
+
+    $('bejobs').textContent=beJobsRound;
+    $('bejobs-sticky').textContent=beJobsRound+' jobs/mo';
+    $('beweek').textContent=beWeek.toFixed(1);
+    $('berevenue').textContent=money(beRevenue);
+    $('ltotal').textContent=beJobsRound;
+
+    var marginPct=margin/price;
+    if(marginPct<0.25){
+      bench.className='bench';
+      bench.innerHTML='<b>Thin margin.</b> You\\'re keeping '+(marginPct*100).toFixed(0)+'% of each job before fixed costs. That pushes your break-even point higher than it needs to be — worth a pricing review.';
+    } else {
+      bench.className='bench ok';
+      bench.innerHTML='<b>Healthy margin</b> — you\\'re keeping '+(marginPct*100).toFixed(0)+'% of each job before fixed costs, which is a solid base to build a break-even number from.';
+    }
+  }
+
+  Object.keys(els).forEach(function(k){
+    els[k].addEventListener('input',calc);
+  });
+  calc();
+})();
+</script>
+<script>
+(function(){
+  var btn=document.getElementById('cap-btn'),em=document.getElementById('cap-email'),
+      err=document.getElementById('cap-err'),form=document.getElementById('cap-form'),done=document.getElementById('cap-done');
+  if(!btn)return;
+  function showErr(m){err.textContent=m;err.style.display='block';}
+  function reset(){btn.disabled=false;btn.textContent='Send me the checklist →';}
+  btn.addEventListener('click',function(){
+    err.style.display='none';
+    var v=(em.value||'').trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){showErr('Please enter a valid email address.');return;}
+    btn.disabled=true;btn.textContent='Sending…';
+    var detail='';
+    try{var b=document.getElementById('bejobs');detail='Break-even '+(b?b.textContent:'')+' jobs/mo';}catch(e){}
+    fetch('/api/submit',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:v,source:'break-even-calculator',detail:detail})})
+      .then(function(r){return r.json().catch(function(){return{ok:r.ok};});})
+      .then(function(d){if(d&&d.ok){form.style.display='none';done.style.display='block';}
+        else{showErr((d&&d.error)||'Could not send. Please try again.');reset();}})
+      .catch(function(){showErr('Network error. Please try again.');reset();});
+  });
+})();
+</script>
+</body>
+</html>
